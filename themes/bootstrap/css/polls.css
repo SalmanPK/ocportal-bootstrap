@@ -1,0 +1,41 @@
+/*
+ {$BRAND_NAME`}
+ Copyright (c) ocProducts, 2004-2012
+*/
+
+.poll_answer {
+	margin: 0.5em 0;
+}
+
+.poll_answer img {
+	vertical-align: text-bottom;
+}
+
+.poll_question {
+	font-weight: bold;
+}
+
+.poll_form {
+	text-align: {!en_left};
+}
+
+.poll_details {
+	margin-bottom: 2em;
+}
+
+/* Fiddling to make the 'no entries' poll block have a decent and matching height */
+
+.fp_col_block .panel-block_main_iotd, /* This is a fudge to make the IOTD balance this height, if IOTD and poll shown at same time. You are likely want to change the blocks referenced here or the sizing, depending on your requirements */
+.fp_col_block .panel-block_no_entries_image_space_of_space_the_space_day,
+.fp_col_block .panel-poll_box,
+.fp_col_block .panel-block_no_entries_poll {
+	min-height: 335px;
+}
+
+
+.boxless_space .fp_col_block .panel-block_main_iotd,
+.boxless_space .panel-block_no_entries_image_of_the_day,
+.boxless_space .fp_col_block .panel-poll_box,
+.boxless_space .fp_col_block .panel-block_no_entries_poll {
+	min-height: 0; /* boxless spaces don't need a min height */
+}

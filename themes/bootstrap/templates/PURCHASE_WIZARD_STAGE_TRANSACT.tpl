@@ -1,0 +1,3 @@
+<p>{!TRANSACT_INFO}</p>
+
+{FIELDS}

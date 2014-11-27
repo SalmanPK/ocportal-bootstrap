@@ -1,0 +1,27 @@
+/*
+ {$BRAND_NAME`}
+ Copyright (c) ocProducts, 2004-2012
+*/
+
+.support_tickets td {
+	padding: 1em;
+}
+
+.closed_ticket {
+	font-style: italic;
+	float: right;
+	padding-{!en_left}: 3em;
+}
+
+.unclosed_ticket {
+	background-color: {$GET,red_highlight_background};
+}
+
+.ticket_last_poster {
+	font-weight: bold;
+}
+
+.ticket_page_text {
+	margin-bottom: 2em;
+}
+

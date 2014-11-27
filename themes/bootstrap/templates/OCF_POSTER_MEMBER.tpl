@@ -1,0 +1,1 @@
+<a href="{PROFILE_URL*}" data-tooltip="{POSTER_DETAILS*}" class="fancy_user_link">{+START,IF_PASSED_AND_TRUE,HIGHLIGHT_NAME}<em>{+END}{POSTER_USERNAME*}{+START,IF_PASSED_AND_TRUE,HIGHLIGHT_NAME}</em>{+END}</a>

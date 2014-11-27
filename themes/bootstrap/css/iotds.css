@@ -1,0 +1,10 @@
+/*
+ {$BRAND_NAME`}
+ Copyright (c) ocProducts, 2004-2012
+*/
+
+.iotd_admin_preview_picture {
+	float: {!en_right};
+	margin-{!en_left}: 0.5em;
+}
+

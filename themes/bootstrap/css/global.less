@@ -1,0 +1,693 @@
+/* Copyright (c) Salman Abbas 2014-2114 */
+
+/* This is ocPortal's main CSS file. It defines colours, re-used styles, and core styles for core functionality. */
+
+@import '../bower_components/bootstrap/less/bootstrap.less';
+@import '../bower_components/fontawesome/less/font-awesome.less';
+
+/* Variables */
+
+// Set Font Awesome path
+@fa-font-path: "../../bower_components/fontawesome/fonts";
+
+/* Base Styles */
+
+h5 {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Utility */
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.img-text { // Inline image in text
+  width: 1em;
+  height: 1em;
+}
+
+.fa {
+  margin-right: 0.3em;
+}
+
+/* Bootstrap Overrides/Additions */
+
+.breadcrumb {
+  clear: both;
+}
+
+.nav-pills > li + li {
+  margin-left: 0;
+}
+
+.nav-justified {
+  display: table;
+
+  @media (min-width: @screen-sm-min) {
+	> li {
+	  width:auto;
+	}
+  }
+}
+
+a.panel-heading {
+  display: block;
+}
+
+blockquote {
+  background: #eee;
+  font-size: inherit; // Bootstrap sets it too big
+  border-color: #ddd;
+}
+
+.nav-tabs,
+.nav-pills {
+  margin-bottom: 10px;
+}
+
+.help-text { // Bootstrap's help-block sets display to block, this is an alternative which doesn't mess with it
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+
+.pagination {
+  float: right;
+  margin-top: 0;
+}
+
+.btn-link-simple {
+  padding: 0;
+}
+
+.btn-toolbar {
+  text-align: center;
+
+  .btn {
+	margin-bottom: 15px;
+  }
+}
+
+.btn-toolbar > form > .btn {
+  margin-left: 5px;
+}
+
+.panel-collapsible {
+  .panel-heading:before {
+	.fa-icon();
+	float: right;
+	content: @fa-var-chevron-up;
+  }
+
+  .panel-heading.collapsed:before {
+	content: @fa-var-chevron-down;
+  }
+}
+
+/* Forms */
+
+.form-horizontal .control-label {
+  text-align: right;
+  margin-bottom: 0;
+  padding-top: 7px;
+}
+
+.form-default {
+  overflow: hidden;
+
+  .control-label {
+	.make-sm-column(3);
+  }
+
+  .control-wrap {
+	.make-sm-column(9);
+  }
+
+  .control-wrap-no-label {
+	.make-sm-column-offset(3);
+	.make-sm-column(9);
+  }
+
+  .form-btns {
+	.make-sm-column-offset(3);
+	.make-sm-column(4);
+  }
+}
+
+.form-control-inline,
+.input-inline {
+  display: inline-block;
+  width: auto;
+}
+
+/* Layout */
+
+.main-website-inner {
+  .container();
+}
+
+body {
+  .global-content-inner {
+	.make-row();
+  }
+
+  .global-middle {
+	.make-md-column(12);
+  }
+}
+
+body.has-left-panel {
+  .global-left-panel {
+	.make-md-column(2);
+	.make-md-column-pull(10);
+  }
+
+  .global-middle {
+	.make-md-column(10);
+	.make-md-column-push(2);
+  }
+}
+
+body.has-right-panel {
+  .global-middle {
+	.make-md-column(10);
+  }
+
+  .global-right-panel {
+	.make-md-column(2);
+  }
+}
+
+body.has-left-panel.has-right-panel {
+  .global-left-panel {
+	.make-md-column(2);
+	.make-md-column-pull(8);
+  }
+
+  .global-middle {
+	.make-md-column(8);
+	.make-md-column-push(2);
+  }
+
+  .global-right-panel {
+	.make-md-column(2);
+  }
+}
+
+/* Main */
+
+.menu-type-top {
+  margin-bottom: 20px;
+}
+
+/* OCF */
+
+.ocf-information-bar {
+  .make-row();
+}
+
+.ocf-member-column {
+  .make-sm-column(4);
+  overflow: hidden;
+
+  @media (max-width: @screen-xs-max) {
+	  border-bottom: 1px solid #ddd;
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+  }
+}
+
+.ocf-guest-column > div,
+.ocf-guest-column > form {
+  overflow: hidden;
+
+  @media (max-width: @screen-sm-max) {
+	border-bottom: 1px solid #ddd;
+	padding-top: 10px;
+	padding-bottom: 10px;
+  }
+}
+
+.ocf-member-avatar {
+  float: left;
+  width: 25%;
+}
+
+.ocf-member-info {
+  float: left;
+  padding-left: 15px;
+  width: 75%;
+}
+
+.ocf-guest-column-login {
+  .make-md-column(8);
+}
+
+.ocf-guest-column-search {
+  .make-md-column(4);
+
+  .form-group {
+	margin-bottom: 0;
+  }
+}
+
+.ocf-screen-buttons {
+  float: right;
+}
+
+.ocf-profile {
+  .make-row();
+}
+
+.ocf-profile-main {
+  .make-xs-column(8);
+}
+
+.ocf-profile-column {
+  .make-xs-column(4);
+}
+
+.captcha-frame {
+  width: 100px;
+  height: 52px;
+}
+
+div.wysiwyg_toolbar_color_finder { // Used in JAVASCRIPT_EDITING.tpl to determine WYSIWYG editor color settings
+  color: #eee;
+}
+
+.ocf-post,
+.post {
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+
+.post-title {
+  margin-top: 0;
+}
+
+.ocf-post-body,
+.post-body {
+  .make-row();
+}
+
+.ocf-topic-post-member-details,
+.post-avatar {
+  .make-xs-column(1);
+  text-align: center;
+}
+
+.ocf-topic-post-area,
+.post-area {
+  .make-xs-column(11);
+}
+
+.ocf-post-details,
+.post-details {
+  .clearfix();
+  margin-bottom: 10px;
+}
+
+.ocf-post-details-date,
+.ocf-post-details-rating {
+  float: left;
+  margin-right: 10px;
+}
+
+.ocf-post-details-grapple {
+  float: right;
+}
+
+.ocf-post .ocf-post-buttons,
+.post .post-buttons {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  .btn-pageitem-points {
+	.btn-success();
+  }
+
+  .btn-pageitem-edit {
+	.btn-info();
+  }
+
+  .btn-pageitem-report_post,
+  .btn-pageitem-punish {
+	.btn-warning();
+  }
+
+  .btn-pageitem-delete {
+	.btn-danger();
+  }
+}
+
+.ocf-post:hover .ocf-post-buttons,
+.post:hover > .post-buttons {
+  visibility: visible;
+  opacity: 1;
+}
+
+.ocf_emoticon_cell {
+  float: left;
+}
+
+.post-thread-children {
+  margin-left: 30px;
+}
+
+.comments-posting-form-emoticons {
+  width: 150px;
+  float: right;
+}
+
+.ocf-topic-actions,
+.ocf-topic-control-functions {
+  float: left;
+  margin-bottom: 15px;
+
+  form {
+	float: left;
+	margin-right: 15px;
+  }
+
+  label {
+	display: block;
+	font-size: 13px;
+  }
+}
+
+.table-forum-grouping {
+  .col-num-topics,
+  .col-num-posts {
+	@media (max-width: @screen-xs-max) { display: none; }
+  }
+
+  .col-in-category-forum .list-num-topics-posts {
+	@media (min-width: @screen-sm-min) { display: none; }
+  }
+}
+
+.table-topic-list {
+  .col-num-posts,
+  .col-num-views {
+	@media (max-width: @screen-xs-max) { display: none; }
+  }
+
+  .col-title .list-num-posts-views {
+	@media (min-width: @screen-sm-min) { display: none; }
+  }
+
+  .link-preview {
+	float: right;
+	@media (max-width: @screen-xs-max) { display: none; }
+  }
+}
+
+/* Components */
+
+.edited { // Used for a "last edit by" note
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Frame Interfaces */
+
+iframe {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.dynamic_iframe {
+  width: 100%;
+  height: 900px; /* This is dynamically resized; 900px is referenced from JAVASCRIPT.tpl so don't change it */
+}
+
+.expandable_iframe {
+  width: 100%;
+  height: 150px; /* Referenced also in JAVASCRIPT.tpl */
+}
+
+.hidden_save_frame, .hidden_preview_frame {
+  width: 100%;
+  height: 0;
+  float: left; /* Stops it breaking up margin collapsing */
+}
+
+/* Lists */
+
+ul.compact_list, ol.compact_list {
+  margin: 0;
+  padding: 0;
+  text-align: left; /* In case cascading from somewhere */
+}
+ul.compact_list>li, ol.compact_list>li {
+  margin: 0 0 0 17px;
+  padding: 0;
+}
+.compact_list>li>p {
+  margin-top: 0;
+}
+
+dl.compact_list {
+  margin: 0.4em 0;
+  overflow: hidden;
+}
+dl.compact_list>dt {
+  display: list-item;
+  list-style-type: circle;
+  float: left;
+  margin: 0 0.5em 0 8px;
+  clear: both;
+}
+.global_side_panel .box dl.compact_list>dt {
+  margin-left: 0;
+}
+dl.compact_list>dt:after {
+  content: ":";
+}
+dl.compact_list>dd {
+  margin: 0;
+}
+
+ul.spaced_list, .spaced_list ul, ol.spaced_list, .spaced_list ol {
+  margin: 0;
+  padding: 0 !important;
+  list-style-type: square;
+}
+.spaced_list li {
+  margin: 0.5em 0 0.5em 25px !important;
+  padding: 0;
+}
+
+ul.tick_list, ul.tick_list li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul.list-actions {
+  padding: 0;
+  margin: 0;
+}
+ul.list-actions>li {
+  padding: 1px 0 2px 18px;
+  background: url('{$IMG;,action_link}') left 5px no-repeat;
+}
+ul.list-actions>li, ul.actions_list_super_compact>li {
+  padding: 0 0 0 18px;
+  background: url('{$IMG;,action_link}') left 2px no-repeat;
+}
+ul.list-actions>li, ul.actions_list_compact>li, ul.actions_list_super_compact>li {
+  margin: 0;
+  list-style-type: none;
+  list-style-image: none;
+}
+ul.list-actions h4 {
+  display: inline;
+  line-height: 2em;
+}
+
+ul.actions_list_compact, ul.actions_list_super_compact {
+  padding: 0;
+  margin: 0;
+}
+
+li.actions_list_strong {
+  font-weight: bold;
+}
+
+/*
+A note about display of meta data...
+
+It may be displayed using:
+ - meta-details-list (usually used on full screen views of content)
+ - horizontal_meta_details (usually used on blocks where the meta details are important to encourage a click through)
+ - a table (usually used where the content defines its own meta data beyond what all ocPortal content has, such as a length or resolution)
+ - a tooltip (good for tucking it away, although it's not touch friendly so should only be used if non-important)
+But it should always have role="contentinfo" on it (ARIA)
+*/
+
+ul.meta-details-list {
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.meta-details-list > li {
+  padding: 0;
+  margin: 0.2em 0;
+}
+
+dl.meta-details-list > dt {
+  float: left;
+  padding-right: 0.4em !important;
+
+  [dir='rtl'] & {
+	float: right;
+	padding-left: 0.4em !important;
+  }
+}
+
+dl.meta-details-list > dt, dl.meta-details-list > dd {
+  margin: 0;
+  padding: 0.2em 0;
+}
+
+.meta-details > ul.meta-details-list > li {
+  margin: 0.5em 0;
+}
+.meta-details > dl.meta-details-list {
+  margin-bottom: 0;
+}
+
+.associated-link {
+  white-space: nowrap;
+}
+.associated-link:before {
+  content: "(";
+  opacity: 0.7;
+}
+
+.associated-link:after {
+  content: ")";
+  opacity: 0.7;
+}
+
+/* Ratings */
+.ratings {
+  width: 100%;
+}
+
+.RATING_BOX .rating_inner {
+  text-align: center;
+}
+
+.RATING_INLINE_DYNAMIC, .RATING_INLINE_STATIC, .RATING_INLINE_DYNAMIC div, .RATING_INLINE_STATIC div, .RATING_INLINE_DYNAMIC form, .RATING_INLINE_STATIC form {
+  display: inline;
+}
+.RATING_INLINE_DYNAMIC .rating_outer, .RATING_INLINE_STATIC .rating_outer {
+  padding-left: 2em;
+}
+.RATING_INLINE_DYNAMIC .rating_outer:first-child, .RATING_INLINE_STATIC .rating_outer:first-child {
+  padding-left: 0;
+}
+
+.rating_inner img {
+  cursor: pointer;
+}
+
+.rating_error {
+  text-align: center;
+}
+
+.rating_star {
+  opacity: 0.2;
+}
+
+.rating_star_highlight {
+  opacity: 1.0;
+}
+
+.post_action_link .RATING_INLINE_DYNAMIC {
+  padding-left: 20px;
+}
+
+/* Misc */
+
+.global-minilinks {
+  float: right;
+}
+
+.native_ui_selected {
+  background: #666;
+  color: white;
+}
+
+// Hide staff edit menu buttons
+.edit_page_link_inline,
+.edit_menu_link_inline,
+.quick_self_edit_link,
+.helper_panel_hidden {
+  display: none;
+}
+
+/* Responsive Styles */
+
+.global-header {
+  margin-top: 10px;
+}
+
+.non-accessibility-redundancy {
+  @media (max-width: @screen-sm-max) { display: none; }
+}
+
+.logo-heading {
+  margin-top: 0;
+
+  @media (max-width: @screen-xs-max) { display: none; }
+}
+
+@media (max-width: @screen-xs-max) {
+  .form-horizontal .control-label {
+	text-align: left;
+  }
+
+  .menu-type-top .nav-justified {
+	text-align: center;
+
+	li { display: inline-block; }
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+  .navbar-brand {
+	display: none;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+
+}
+
+@import "custom.less";

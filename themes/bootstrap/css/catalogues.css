@@ -1,0 +1,113 @@
+/*
+ {$BRAND_NAME`}
+ Copyright (c) ocProducts, 2004-2012
+*/
+
+/* Field map display */
+
+.catalogue_fieldmap_field_name_column {
+	width: 13em;
+}
+
+.catalogue_fieldmap_field_value_column {
+	width: 100%;
+}
+
+/* Tabular display */
+
+.catalogue_tabular_view_link_column {
+	width: 8em;
+}
+
+.catalogue_tabular_rating_column {
+	width: 85px;
+}
+
+/* Grid display */
+
+.display_type_GRID {
+	margin: 0 0 1em;
+	padding: 0 0 0 0.5em;
+	position: relative;
+	z-index: 1;
+	border: 1px;
+}
+
+.display_type_GRID .box {
+	float: left;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.display_type_GRID .box h3 span {
+	max-width: {$CONFIG_OPTION,thumb_width}px;
+	display: inline-block;
+}
+
+.display_type_GRID .catalogue_entry_box_thumbnail {
+	min-width: {$CONFIG_OPTION,thumb_width}px;
+	min-height: {$ADD,4,{$CONFIG_OPTION,thumb_width}}px;
+	text-align: center;
+}
+
+/* eCommerce cart button (logo) template */
+
+.cart_info {
+	text-align: right;
+	height: 60px;
+	overflow: visible;
+}
+
+.cart_logo {
+	display: inline;
+	float: right;
+	margin-right: 18px;
+}
+
+/* eCommerce add to cart template */
+
+.add_to_cart {
+	width: 100px;
+	padding-top: 1em;
+}
+
+.purchase_buy {
+	float: left;
+	margin-right: 0.5em;
+}
+
+.tax_opted_out {
+	font-size: 0.85em;
+}
+
+/* eCommerce product entry screen AND eCommerce product entries */
+
+.price_box {
+	font-weight: bold;
+	margin: 1em 0;
+	font-size: 1.2em;
+}
+
+/* eCommerce product entries */
+
+/* eCommerce product entry screen */
+
+.catalogue_fields_table {
+	margin: 1em 0;
+	font-size: 0.85em;
+}
+
+.catalogue_fields_table th, .catalogue_fields_table td {
+	padding: 0.5em;
+	text-align: left;
+}
+
+.catalogue_entry_screen .ratings .rating_box {
+	float: left;
+	margin-right: 1em;
+}
+
+.product_view .catalogue_entry_box_thumbnail {
+	float: right;
+	margin: 3em 0 3em 3em;
+}

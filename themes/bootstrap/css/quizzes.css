@@ -1,0 +1,111 @@
+/*
+ {$BRAND_NAME`}
+ Copyright (c) ocProducts, 2004-2012
+*/
+
+.quiz_form table {
+	counter-reset: quiz_num;
+}
+
+.quiz_field_name_column {
+	width: 28em;
+}
+
+.quiz_field_input_column {
+	width: 100%;
+}
+
+.quiz_form th {
+	position: relative;
+}
+
+.quiz_form th, .quiz_form td {
+	padding: 0.5em 2em 5em 4em;
+}
+
+.quiz_form th>span {
+	display: block;
+	padding-left: 60px;
+	padding-top: 2em;
+	z-index: 10;
+}
+
+.quiz_form th:before {
+	content: counter(quiz_num);
+	counter-increment: quiz_num;
+	z-index: 5;
+	line-height: 1.8em;
+	font-size: 3.5em;
+	position: absolute;
+	left: 30px;
+	color: {$GET,th_secondary_text};
+}
+
+.quiz_form .filledin th:before {
+	font-size: 1.5em;
+}
+
+.quiz_form .filledin td:before {
+	float: right;
+	width: 30px;
+	height: 30px;
+	content: " ";
+	/*content: "\221a"; Cool but misleading*/
+	color: {$GET,green_highlight_text};
+	{$BETA_CSS_PROPERTY,opacity: 0.6;}
+	background: url('{$IMG;,ocf_emoticons/thumbs}') top right no-repeat; /* For IE8, which doesn't support CSS3 */
+}
+
+.quiz_form .filledin:nth-child(7n+1) td:before {
+	background: url('{$IMG;,ocf_emoticons/thumbs}') top right no-repeat;
+}
+
+.quiz_form .filledin:nth-child(7n+2) td:before {
+	background: url('{$IMG;,ocf_emoticons/hippie}') top right no-repeat;
+}
+
+.quiz_form .filledin:nth-child(7n+3) td:before {
+	background: url('{$IMG;,ocf_emoticons/guitar}') top right no-repeat;
+}
+
+.quiz_form .filledin:nth-child(7n+4) td:before {
+	background: url('{$IMG;,ocf_emoticons/cool}') top right no-repeat;
+}
+
+.quiz_form .filledin:nth-child(7n+5) td:before {
+	background: url('{$IMG;,ocf_emoticons/glee}') top right no-repeat;
+}
+
+.quiz_form .filledin:nth-child(7n+6) td:before {
+	background: url('{$IMG;,ocf_emoticons/nod}') top right no-repeat;
+}
+
+.quiz_form .filledin:nth-child(7n+7) td:before {
+	background: url('{$IMG;,ocf_emoticons/party}') top right no-repeat;
+}
+
+.quiz_form tr.filledin.field_input th, .quiz_form tr.filledin.field_input td {
+	{$BETA_CSS_PROPERTY,opacity: 0.5;}
+}
+
+.quiz_form tr.field_input th, .quiz_form tr.field_input td {
+	{$BETA_CSS_PROPERTY,opacity: 0.8;}
+}
+
+.quiz_form tr.field_input:hover th, .quiz_form tr.field_input:hover td, body.touch_enabled .quiz_form tr.field_input th, body.touch_enabled .quiz_form tr.field_input td {
+	{$BETA_CSS_PROPERTY,opacity: 1.0 !important;}
+}
+
+.quiz_form td .input_radio {
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.quiz_form td label {
+	vertical-align: top;
+}
+
+.quiz_form tr.field_input .constrain_field {
+	margin-right: 35px;
+	display: inline-block;
+}

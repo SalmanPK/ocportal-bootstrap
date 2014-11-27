@@ -1,0 +1,1 @@
+{$, Hiding posts per page selector for the sake of minimalism}

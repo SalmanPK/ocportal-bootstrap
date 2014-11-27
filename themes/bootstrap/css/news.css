@@ -1,0 +1,97 @@
+/*
+ {$BRAND_NAME`}
+ Copyright (c) ocProducts, 2004-2012
+*/
+
+.rss_summary nobr { /* Stops naughty Google news from breaking layout */
+	white-space: normal;
+}
+
+.news_piece_summary h3 {
+	font-size: 1.2em;
+}
+
+.newscat_img {
+	margin-{!en_left}: 1.5em;
+	margin-bottom: 1.5em;
+	float: {!en_right};
+	width: 100px;
+}
+
+.newscat_img img {
+	max-width: 100px;
+}
+
+.newscat_img_member {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.newscat_img_author img {
+	margin-top: 0.5em;
+}
+
+.newscat_img_author .news_by {
+	margin-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.newscat_img_member, .newscat_img_author .news_by {
+	border: 1px dashed {$GET,point_of_interest_border};
+	background-color: {$GET,point_of_interest_background};
+	padding: 0.5em;
+	font-size: 0.9em;
+}
+
+.news_summary_p {
+	margin-top: 0.5em;
+}
+
+.news_goto {
+	font-size: 0.9em;
+	padding-bottom: 0.5em;
+	margin-bottom: 1.5em;
+	text-align: center;
+}
+
+.boxless_space .news_goto {
+	text-align: left;
+}
+
+.news_piece_summary + .news_piece_summary {
+	border-top: 1px dotted {$GET,pale_border};
+	padding-top: 0.5em;
+}
+
+.news_by {
+	text-align: center;
+}
+
+.chicklet {
+	margin: 0.3em 0;
+}
+
+.chicklets {
+	float: {!en_right};
+}
+
+.chicklets_spacer {
+	margin-{!en_right}: 120px;
+}
+
+.wide_ticker {
+	overflow: hidden;
+	height: 24em;
+}
+
+/*
+=========================
+=======Print rules=======
+=========================
+*/
+
+@media print {
+	#news_archive_link {
+		display: none;
+	}
+}

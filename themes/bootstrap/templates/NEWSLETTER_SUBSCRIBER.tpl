@@ -1,0 +1,10 @@
+<tr>
+	<td>{EMAIL*}</td>
+	<td>{FORENAME*}</td>
+	<td>{SURNAME*}</td>
+	<td>{NAME*}</td>
+	<!--
+	<td>{NEWSLETTER_SEND_ID*}</td>
+	<td>{NEWSLETTER_HASH*}</td>
+	-->
+</tr>

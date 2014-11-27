@@ -1,0 +1,29 @@
+{
+  "name": "ocportal-bootstrap",
+  "version": "0.1.0",
+  "homepage": "https://github.com/SalmanPK/ocportal-bootstrap",
+  "authors": [
+    "Salman Abbas <salmanabbas007@gmail.com>"
+  ],
+  "description": "A responsive starter theme for ocPortal built with Bootstrap",
+  "keywords": [
+    "bootstrap",
+    "ocportal",
+    "responsive",
+    "starter",
+    "sexy"
+  ],
+  "license": "CPAL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.2.0",
+    "bootstrap": "~3.3.1",
+    "jquery": "~2.1.1"
+  }
+}
