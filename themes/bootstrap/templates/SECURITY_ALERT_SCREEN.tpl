@@ -55,7 +55,7 @@
 
 	<p>{!POST_DATA_EXPLANATION}</p>
 
-	<div class="box box___security_alert_screen"><div class="box_inner">
+	<div class="well well-sm well-security_alert_screen"><div class="box_inner">
 		{POST}
 	</div></div>
 {+END}

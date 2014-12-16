@@ -5,41 +5,32 @@
 </p>
 
 <form title="{!NOTIFICATIONS}" method="post" action="{ACTION_URL*}">
-	<div>
-		{+START,IF_NON_EMPTY,{$TRIM,{TREE}}}
-			<div class="wide_table"><table class="table table-bordered table-striped table-results notifications_form" summary="{!COLUMNED_TABLE}">
-				<colgroup>
-					<col class="notifications_field_name_column" />
+	{+START,IF_NON_EMPTY,{$TRIM,{TREE}}}
+		<table class="table table-bordered table-striped table-results table-notifications-form">
+			<thead>
+				<tr>
+					<th></th>
 					{+START,LOOP,NOTIFICATION_TYPES_TITLES}
-						<col class="notifications_tick_column" />
+						<th>
+							<img src="{$BASE_URL*}/data/gd_text.php?color={COLOR*}&amp;text={$ESCAPE,{LABEL},UL_ESCAPED}{$KEEP*}" title="{LABEL*}" alt="{LABEL*}">
+						</th>
 					{+END}
-				</colgroup>
+				</tr>
+			</thead>
 
-				<thead>
-					<tr>
-						<th></th>
-						{+START,LOOP,NOTIFICATION_TYPES_TITLES}
-							<th>
-								<img src="{$BASE_URL*}/data/gd_text.php?color={COLOR*}&amp;text={$ESCAPE,{LABEL},UL_ESCAPED}{$KEEP*}" title="{LABEL*}" alt="{LABEL*}" />
-							</th>
-						{+END}
-					</tr>
-				</thead>
+			<tbody>
+				{TREE}
+			</tbody>
+		</table>
 
-				<tbody>
-					{TREE}
-				</tbody>
-			</table></div>
+		<p class="proceed-button">
+			<input type="submit" class="btn btn-primary btn-page" value="{!SAVE}">
+		</p>
+	{+END}
 
-			<p class="proceed_button">
-				<input type="submit" class="btn btn-primary btn-page" value="{!SAVE}" />
-			</p>
-		{+END}
-
-		{+START,IF_EMPTY,{$TRIM,{TREE}}}
-			<p class="nothing_here">
-				{!NO_CATEGORIES}
-			</p>
-		{+END}
-	</div>
+	{+START,IF_EMPTY,{$TRIM,{TREE}}}
+		<p class="nothing-here">
+			{!NO_CATEGORIES}
+		</p>
+	{+END}
 </form>

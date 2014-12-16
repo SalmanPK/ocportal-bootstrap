@@ -1,4 +1,4 @@
-<div class="box box___pointstore_pop3_activate"><div class="box_inner">
+<div class="well well-pointstore_pop3_activate"><div class="box_inner">
 	<h4>
 		{!ACTIVATE_ACCOUNT}
 	</h4>

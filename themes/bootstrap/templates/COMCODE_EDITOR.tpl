@@ -3,9 +3,9 @@
 </div>
 
 {+START,IF_NON_EMPTY,{MICRO_BUTTONS}}
-<p class="sr-only"><label for="f_face">{!FONT}</label></p>
-<p class="sr-only"><label for="f_size">{!SIZE}</label></p>
-<p class="sr-only"><label for="f_colour">{!COLOUR}</label></p>
+<label for="f_face" class="sr-only">{!FONT}</label>
+<label for="f_size" class="sr-only">{!SIZE}</label>
+<label for="f_colour" class="sr-only">{!COLOUR}</label>
 
 <div class="btn-toolbar">
 	{MICRO_BUTTONS}
@@ -46,6 +46,8 @@
 		<option value="yellow" style="color: yellow">{!YELLOW}</option>
 	</select>
 
-	<a href="javascript:" onclick="do_input_font('{POSTING_FIELD*;}'); return false;" title="{!INPUT_COMCODE_font}" class="btn btn-primary btn-sm">{$ICON,comcodeeditor/apply_changes}</a>
+	<a href="javascript:" onclick="do_input_font('{POSTING_FIELD*;}');" title="{!INPUT_COMCODE_font}" class="btn btn-primary btn-sm btn-comcodeeditor btn-comcodeeditor-apply_changes" data-toggle="tooltip">
+		{!APPLY_CHANGES}
+	</a>
 </div>
 {+END}

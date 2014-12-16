@@ -55,14 +55,14 @@
 
 <div class="messages_window"><div role="marquee" class="messages_window_full_chat" id="messages_window"></div></div>
 
-<div class="box box___chat_screen_chatters"><div class="box_inner">
+<div class="well well-sm well-chat_screen_chatters"><div class="box_inner">
 	<p>
 		{!USERS_IN_ROOM} <span id="chat_members_update">{CHATTERS}</span>
 	</p>
 </div></div>
 
 <form title="{$STRIP_TAGS,{!CHAT_OPTIONS_DESCRIPTION}}" class="below_main_chat_window" onsubmit="return check_chat_options(this);" method="post" action="{OPTIONS_URL*}">
-	<div class="box box___chat_screen_options"><div class="box_inner">
+	<div class="well well-sm well-chat_screen_options"><div class="box_inner">
 		<div class="clearfix">
 			<div class="chat_options_title">
 				{!CHAT_OPTIONS_DESCRIPTION}

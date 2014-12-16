@@ -5,7 +5,7 @@
 {+END}
 
 {+START,IF,{$NOT,{$IS_GUEST}}}
-	<div class="box box___support_tickets_screen"><div class="box_inner vertical_alignment">
+	<div class="well well-sm well-support_tickets_screen"><div class="box_inner vertical_alignment">
 		<form title="{!FILTER}" class="clearfix" id="ticket_type_form" action="{$URL_FOR_GET_FORM*,{$SELF_URL,0,1}}" method="get" onsubmit="try { window.scrollTo(0,0); } catch(e) {};">
 			{$HIDDENS_FOR_GET_FORM,{$SELF_URL,0,1},ticket_type}
 			<label class="field_name" for="ticket_type">{!TICKET_TYPE}:</label>

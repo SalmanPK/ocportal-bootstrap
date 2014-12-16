@@ -1,3 +1,4 @@
-<script>	{CODE/}
+<script>
+{CODE/}
 </script>
 

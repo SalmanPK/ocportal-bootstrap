@@ -4,7 +4,7 @@
 	{!DESCRIPTION_I_AGREE_RULES}
 </p>
 
-<div class="box box___ocf_join_step1_screen">
+<div class="ocf-join-step1-screen">
 	{RULES}
 </div>
 
@@ -34,10 +34,10 @@
 </form>
 
 {+START,IF_NON_EMPTY,{GENERATE_HOST}}
-	<div class="box box___ocf_join_step1_screen"><div class="box_inner">
+	<div class="ocf-join-step1-screen">
 		<h2>{!REMOTE_MEMBERS}</h2>
 
 		{!DESCRIPTION_IS_REMOTE_MEMBER,{GENERATE_HOST}}
-	</div></div>
+	</div>
 {+END}
 

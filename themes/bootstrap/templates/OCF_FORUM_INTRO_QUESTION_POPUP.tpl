@@ -1,4 +1,4 @@
-<div class="box box___ocf_forum_intro_question_popup"><div class="box_inner">
+<div class="well well-sm well-ocf_forum_intro_question_popup"><div class="box_inner">
 	{QUESTION}
 </div></div>
 

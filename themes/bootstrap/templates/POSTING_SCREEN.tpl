@@ -1,3 +1,5 @@
+<div class="posting-screen">
+
 {TITLE}
 
 {+START,INCLUDE,HANDLE_CONFLICT_RESOLUTION}{+END}
@@ -17,3 +19,4 @@
 	{REVISION_HISTORY}
 {+END}
 
+</div>

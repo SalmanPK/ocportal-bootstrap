@@ -5,7 +5,7 @@
 {$REQUIRE_CSS,quizzes}
 
 {+START,IF_NON_EMPTY,{START_TEXT}}
-	<div class="box box___quiz_screen"><div class="box_inner">
+	<div class="well well-sm well-quiz_screen"><div class="box_inner">
 		<div itemprop="description">
 			{START_TEXT}
 		</div>

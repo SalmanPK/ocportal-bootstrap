@@ -1,4 +1,4 @@
-<div class="box box___pointstore_banners_upgrade"><div class="box_inner">
+<div class="well well-pointstore_banners_upgrade"><div class="box_inner">
 	<h2>{!UPGRADE_ACCOUNT}</h2>
 
 	<p>

@@ -22,7 +22,7 @@
 {+END}
 
 {+START,IF_PASSED,TITLE}
-	<section class="box box___comcode_page_box"><div class="box_inner">
+	<section class="well well-sm well-comcode_page_box"><div class="box_inner">
 		<h3>{TITLE*}</h3>
 
 		{$GET,PREVIEW_CONTENTS}

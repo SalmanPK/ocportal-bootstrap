@@ -1,5 +1,5 @@
 <div class="pointstore_item">
-	<div class="box box___pointstore_topic_pin"><div class="box_inner">
+	<div class="well well-pointstore_topic_pin"><div class="box_inner">
 		<h2>{!TOPIC_PINNING}</h2>
 
 		<p>

@@ -1,5 +1,5 @@
 {+START,IF_NON_EMPTY,{CONTENT}}
-	<div class="list-group menu_type__embossed">
+	<div class="menu-embossed menu-embossed-{MENU|*} list-group">
 		{CONTENT}
 	</div>
 {+END}

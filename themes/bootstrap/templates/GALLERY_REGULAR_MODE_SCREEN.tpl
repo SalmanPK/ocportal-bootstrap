@@ -11,7 +11,7 @@
 	{+START,IF_NON_EMPTY,{$GET,bound_catalogue_entry}}{$CATALOGUE_ENTRY_ALL_FIELD_VALUES,{$GET,bound_catalogue_entry}}{+END}
 
 	{+START,IF_NON_EMPTY,{CHILDREN}}
-		<div class="box box___gallery_regular_mode_screen"><div class="box_inner">
+		<div class="well well-sm well-gallery_regular_mode_screen"><div class="box_inner">
 			<h2>{!SUBCATEGORIES_HERE}</h2>
 
 			<ul class="category_list" itemprop="significantLinks">
@@ -72,7 +72,7 @@
 	<div class="clearfix lined_up_boxes">
 		{+START,IF_NON_EMPTY,{MEMBER_DETAILS}}
 			<div class="pull-right">
-				<div class="box box___gallery_regular_mode_screen"><div class="box_inner">
+				<div class="well well-sm well-gallery_regular_mode_screen"><div class="box_inner">
 					<h2>{_TITLE*}</h2>
 
 					{MEMBER_DETAILS}

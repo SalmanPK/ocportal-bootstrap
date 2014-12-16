@@ -1,4 +1,4 @@
-<section class="box box___points_leaderboard"><div class="box_inner">
+<section class="well well-sm well-points_leaderboard"><div class="box_inner">
 	<h3>{!POINT_LEADERBOARD}</h3>
 
 	<p>{!LEADERBOARD_ABOUT,{LIMIT*}}</p>

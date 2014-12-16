@@ -1,4 +1,4 @@
-<form title="{!PRIMARY_PAGE_FORM}" id="posting_form" method="post" enctype="multipart/form-data" action="{URL*}" class="form-horizontal form-default {+START,IF_PASSED_AND_TRUE,AUTOCOMPLETE}autocomplete{+END}">
+<form title="{!PRIMARY_PAGE_FORM}" id="posting_form" method="post" enctype="multipart/form-data" action="{URL*}" class="form-horizontal form-default from-posting {+START,IF_PASSED_AND_TRUE,AUTOCOMPLETE}autocomplete{+END}">
 	<input type="hidden" name="comcode__post" value="1">
 	<input type="hidden" name="posting_ref_id" value="{$RAND,1,2147483646}">
 
@@ -22,9 +22,10 @@
 </form>
 
 {+START,IF,{$IS_A_COOKIE_LOGIN}}
-	<script>		add_event_listener_abstract(window,'load',function () {
+	<script>
+		add_event_listener_abstract(window,'load',function () {
 			if (typeof init_form_saving!='undefined') init_form_saving('posting_form');
-		} );
+		});
 	</script>
 {+END}
 

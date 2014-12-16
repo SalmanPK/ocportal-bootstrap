@@ -1,5 +1,5 @@
-<div class="pointstore_item">
-	<div class="box box___pointstore_flagrant_2"><div class="box_inner">
+<div class="pointstore-item">
+	<div class="well well-pointstore-flagrant-2"><div class="box_inner">
 		<h2>{!FLAGRANT_MESSAGE}</h2>
 
 		<p>

@@ -1,14 +1,10 @@
 {+START,IF_ARRAY_NON_EMPTY,CHILDREN}
-	<div class="panel panel-default panel-block_main_comcode_page_children">
+	<div class="panel panel-default panel-block-main-comcode-page-children">
 		<div class="panel-body">
-			<p class="lonely_label">{!CHILD_PAGES}:</p>
-			<ul class="category_list">
+			<p class="label-lonely">{!CHILD_PAGES}:</p>
+			<ul class="list-category">
 				{+START,LOOP,CHILDREN}
-					<li>
-						<div class="clearfix">
-							&bull; <a href="{$PAGE_LINK*,{ZONE}:{PAGE}}">{TITLE}</a>
-						</div>
-					</li>
+					<li><a href="{$PAGE_LINK*,{ZONE}:{PAGE}}">{TITLE}</a></li>
 				{+END}
 			</ul>
 		</div>

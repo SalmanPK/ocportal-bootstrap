@@ -19,6 +19,6 @@
 		<script>			add_event_listener_abstract(window,'load',function () {
 				assign_radio_deletion_confirm('{NAME;}');
 			} );
-		//]]></script>
+		</script>
 	{+END}
 {+END}

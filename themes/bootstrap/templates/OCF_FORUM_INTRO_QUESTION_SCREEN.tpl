@@ -6,7 +6,7 @@
 
 <div class="site_special_message">
 	<div class="site_special_message_alt_inner">
-		<div class="box box___ocf_forum_intro_question_screen"><div class="box_inner">
+		<div class="well well-sm well-ocf_forum_intro_question_screen"><div class="box_inner">
 			<h2>{!QUESTION}</h2>
 
 			{QUESTION}

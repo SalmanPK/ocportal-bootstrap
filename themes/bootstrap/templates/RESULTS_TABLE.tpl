@@ -8,7 +8,8 @@
 
 {+START,IF_NON_EMPTY,{FIELDS}}
 	{MESSAGE}
-	<div class="table-wrap"><table summary="{!COLUMNED_TABLE}" class="table table-bordered table-striped table-results" itemprop="significantLinks">
+	<div class="table-wrap">
+		<table summary="{!COLUMNED_TABLE}" class="table table-bordered table-striped table-results" itemprop="significantLinks">
 		{+START,IF,{$NOT,{$MOBILE}}}{+START,IF_NON_EMPTY,{WIDTHS}}
 			<colgroup>
 				{+START,LOOP,WIDTHS}
@@ -17,25 +18,26 @@
 			</colgroup>
 		{+END}{+END}
 
-		<thead>
-			<tr>
-				{FIELDS_TITLE}
-			</tr>
-		</thead>
-		<tbody>
-			{FIELDS}
-		</tbody>
-	</table></div>
+			<thead>
+				<tr>
+					{FIELDS_TITLE}
+				</tr>
+			</thead>
+			<tbody>
+				{FIELDS}
+			</tbody>
+		</table>
+	</div>
 
 	{+START,SET,RESULTS_TABLE_PAGINATION}
 		{+START,IF_NON_EMPTY,{SORT}{PAGINATION}}
-			<div class="box results_table_under"><div class="box_inner clearfix">
-				<div class="results_table_sorter">
+			<div class="box results-table-under clearfix">
+				<div class="results-table-sorter left">
 					{SORT}
 				</div>
 
 				{PAGINATION}
-			</div></div>
+			</div>
 		{+END}
 	{+END}
 	{+START,IF,{$NOT,{$GET,DEFER_RESULTS_TABLE_PAGINATION}}}

@@ -14,7 +14,7 @@
 	{+END}
 </form>
 
-<div class="box box___edit_forum_screen">
+<div class="well well-sm well-edit_forum_screen">
 	<div class="box_inner help_jumpout">
 		<p>
 			{!CHOOSE_FORUM_EDIT_2}

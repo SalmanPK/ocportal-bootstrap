@@ -1,5 +1,5 @@
 {+START,IF_PASSED,DESCRIPTION}{+START,IF_NON_EMPTY,{DESCRIPTION}}
-	<div class="box box___ocf_forum"><div class="box_inner">
+	<div class="well well-sm well-ocf_forum"><div class="box_inner">
 		<div itemprop="description">
 			{DESCRIPTION}
 		</div>
@@ -15,7 +15,7 @@
 {+END}{+END}
 
 {+START,IF_NON_EMPTY,{$TRIM,{FILTERS}}}
-	<div class="box box___ocf_forum"><div class="box_inner">
+	<div class="well well-sm well-ocf_forum"><div class="box_inner">
 		<span class="ocf_pt_category_filters">{!CATEGORIES}:</span> {FILTERS}
 	</div></div>
 {+END}

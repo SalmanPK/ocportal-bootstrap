@@ -5,7 +5,7 @@
 
 	{CART_LINK}
 
-	<div class="box box___catalogue_products_entry_screen"><div class="box_inner">
+	<div class="well well-sm well-catalogue_products_entry_screen"><div class="box_inner">
 		<div class="hproduct"{$?,{$MATCH_KEY_MATCH,_WILD:_WILD:misc}, itemscope="itemscope" itemtype="http://schema.org/Offer"}>
 			<div class="clearfix">
 				{+START,IF_NON_EMPTY,{FIELD_7_THUMB}}

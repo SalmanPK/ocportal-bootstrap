@@ -1,5 +1,5 @@
 {+START,IF_NON_EMPTY,{SPELLING}}
-	<div class="box box___preview_script"><div class="box_inner">
+	<div class="well well-sm well-preview_script"><div class="box_inner">
 		<h2>{!SPELLCHECK}</h2>
 
 		<div>
@@ -8,7 +8,7 @@
 	</div></div>
 {+END}
 {+START,IF_NON_EMPTY,{KEYWORD_DENSITY}}
-	<div class="box box___preview_script"><div class="box_inner">
+	<div class="well well-sm well-preview_script"><div class="box_inner">
 		<h2>{!KEYWORDCHECK}</h2>
 
 		<div>
@@ -17,7 +17,7 @@
 	</div></div>
 {+END}
 {+START,IF_NON_EMPTY,{VALIDATION}}
-	<div class="box box___preview_script"><div class="box_inner">
+	<div class="well well-sm well-preview_script"><div class="box_inner">
 		<h2>{!VALIDATION}</h2>
 
 		<div>
@@ -26,7 +26,7 @@
 	</div></div>
 {+END}
 {+START,IF_EMPTY,{VALIDATION}}
-	<section class="box box___preview_script global_middle_faux"><div class="box_inner">
+	<section class="well well-sm well-preview_script global_middle_faux"><div class="box_inner">
 		<h2>{!PREVIEW}</h2>
 
 		<div class="preview_box">

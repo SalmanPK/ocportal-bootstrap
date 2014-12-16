@@ -4,7 +4,7 @@
 	</div>
 	<div class="lined_up_boxes">
 		<div class="gallery_entry_details right">
-			<section class="box box___gallery_flowmode_video"><div class="box_inner">
+			<section class="well well-sm well-gallery_flowmode_video"><div class="box_inner">
 				<h3>{!DETAILS}</h3>
 
 				<table summary="{!MAP_TABLE}" class="table table-bordered table-striped table-results">

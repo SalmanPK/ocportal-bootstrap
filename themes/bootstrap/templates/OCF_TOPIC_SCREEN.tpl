@@ -2,19 +2,15 @@
 
 {WARNING_DETAILS}
 
-<div class="ocf-topic-{$?,{THREADED},threaded,linear}">
+<div class="ocf-topic ocf-topic-{$?,{THREADED},threaded,linear}">
 	{+START,IF,{$NOT,{$VALUE_OPTION,disable_forum_dupe_buttons}}}
-		<div class="non-accessibility-redundancy">
-			<div class="clearfix">
-				<div class="btn-toolbar ocf-screen-buttons">
-					{+START,INCLUDE,NOTIFICATION_BUTTONS}
-						NOTIFICATIONS_TYPE=ocf_topic
-						NOTIFICATIONS_ID={ID}
-						NOTIFICATIONS_PAGELINK=forum:topics:toggle_notifications_topic:{ID}
-					{+END}
-					{SCREEN_BUTTONS}
-				</div>
-			</div>
+		<div class="btn-toolbar ocf-screen-buttons non-accessibility-redundancy">
+			{+START,INCLUDE,NOTIFICATION_BUTTONS}
+				NOTIFICATIONS_TYPE=ocf_topic
+				NOTIFICATIONS_ID={ID}
+				NOTIFICATIONS_PAGELINK=forum:topics:toggle_notifications_topic:{ID}
+			{+END}
+			{SCREEN_BUTTONS}
 		</div>
 	{+END}
 
@@ -25,19 +21,15 @@
 
 	{+START,IF,{$NOT,{$VALUE_OPTION,disable_forum_dupe_buttons}}}
 		{+START,IF_NON_EMPTY,{PAGINATION}}
-			<div class="non-accessibility-redundancy">
-				<div class="pagination_spacing clearfix">
-					{$REPLACE, id="blp_, id="blp2_,{$REPLACE, for="blp_, for="blp2_,{$REPLACE, id="r_, id="r2_,{$REPLACE, for="r_, for="r2_,{PAGINATION}}}}}
-				</div>
+			<div class="pagination-spacing non-accessibility-redundancy clearfix">
+				{$REPLACE, id="blp_, id="blp2_,{$REPLACE, for="blp_, for="blp2_,{$REPLACE, id="r_, id="r2_,{$REPLACE, for="r_, for="r2_,{PAGINATION}}}}}
 			</div>
 		{+END}
 	{+END}
 
 	{+START,IF,{THREADED}}
-		<div class="comments-wrapper">
-			<div class="boxless-space">
-				{POSTS}
-			</div>
+		<div class="ocf-topic-posts ocf-topic-threaded-posts">
+			{POSTS}
 		</div>
 
 		{+START,IF_PASSED,SERIALIZED_OPTIONS}{+START,IF_PASSED,HASH}
@@ -47,15 +39,16 @@
 			</script>
 		{+END}{+END}
 	{+END}
+
 	{+START,IF,{$NOT,{THREADED}}}
 		{+START,IF_NON_EMPTY,{POSTS}}
-			<div class="ocf-topic">
+			<div class="ocf-topic-posts ocf-topic-linear-posts">
 				{POSTS}
 			</div>
 		{+END}
 	{+END}
 
-	<div class="ocf-topic-screen alert alert-info">
+	<div class="alert alert-info ocf-topic-screen">
 		{+START,IF_NON_EMPTY,{MEMBERS_VIEWING}}
 			{+START,IF,{$NEQ,{NUM_MEMBERS},0}}
 				{!MEMBERS_VIEWING,{NUM_GUESTS*},{NUM_MEMBERS*},{MEMBERS_VIEWING}}
@@ -69,7 +62,7 @@
 		{+END}
 	</div>
 	{+START,IF_EMPTY,{POSTS}}
-		<p class="nothing_here">
+		<p class="nothing-here">
 			{!NO_ENTRIES}
 		</p>
 	{+END}
@@ -157,21 +150,19 @@
 		</div>
 
 		{+START,IF,{$NOT,{$VALUE_OPTION,disable_forum_dupe_buttons}}}
-			<div class="non-accessibility-redundancy clearfix">
-				<ol class="breadcrumb" itemprop="breadcrumb" role="navigation">
-					<li>{BREADCRUMBS}</li>
-				</ol>
-			</div>
+			<ol class="breadcrumb non-accessibility-redundancy" itemprop="breadcrumb" role="navigation">
+				<li>{BREADCRUMBS}</li>
+			</ol>
 		{+END}
 	</div>
 
-	<div class="ocf_quick_reply">
+	<div class="ocf-quick-reply">
 		{QUICK_REPLY}
 
 		{+START,IF_EMPTY,{QUICK_REPLY}}{+START,IF,{$EQ,{LAST_POSTER},{$USER}}}{+START,IF,{$NOT,{$IS_GUEST}}}{+START,IF,{$NOT,{MAY_DOUBLE_POST}}}
-			<div class="box box___ocf_topic_screen"><div class="box_inner">
+			<div class="well well-sm well-ocf-topic-screen">
 				{!NO_DOUBLE_POST}
-			</div></div>
+			</div>
 		{+END}{+END}{+END}{+END}
 	</div>
 

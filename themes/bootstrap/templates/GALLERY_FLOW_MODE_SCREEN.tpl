@@ -13,7 +13,7 @@
 	{+START,IF_NON_EMPTY,{$GET,bound_catalogue_entry}}{$CATALOGUE_ENTRY_ALL_FIELD_VALUES,{$GET,bound_catalogue_entry}}{+END}
 
 	{+START,IF_NON_EMPTY,{CHILDREN}}
-		<div class="box box___gallery_flow_mode_screen__subcats"><div class="box_inner">
+		<div class="well well-sm well-gallery_flow_mode_screen__subcats"><div class="box_inner">
 			<h2>{!SUBCATEGORIES_HERE}</h2>
 
 			<ul class="category_list">
@@ -31,7 +31,7 @@
 	{+END}
 
 	{+START,IF_NON_EMPTY,{ENTRIES}}
-		<div class="box box___gallery_flow_mode_screen__other"><div class="box_inner">
+		<div class="well well-sm well-gallery_flow_mode_screen__other"><div class="box_inner">
 			<h2>{!OTHER_IMAGES_IN_GALLERY}</h2>
 
 			{$REQUIRE_JAVASCRIPT,javascript_dyn_comcode}
@@ -79,7 +79,7 @@
 	<div class="clearfix lined_up_boxes flow_mode_details">
 		{+START,IF_NON_EMPTY,{MEMBER_DETAILS}}
 			<div class="pull-right">
-				<div class="box box___gallery_flow_mode_screen__member"><div class="box_inner">
+				<div class="well well-sm well-gallery_flow_mode_screen__member"><div class="box_inner">
 					<h2>{_TITLE*}</h2>
 
 					{MEMBER_DETAILS}

@@ -18,7 +18,7 @@
 		{+START,IF_NON_EMPTY,{SUBSCRIBE_URL}}
 			<div class="event_right">
 				{+START,IF_NON_EMPTY,{SUBSCRIBED}}
-					<div class="box box___calendar_event_screen_subscribed"><div class="box_inner">
+					<div class="well well-sm well-calendar_event_screen_subscribed"><div class="box_inner">
 						<h2>{!SUBSCRIBED_REMINDERS}</h2>
 
 						<div class="sr-only">{!FOLLOWING_SUBSCRIBED}</div>
@@ -28,7 +28,7 @@
 					</div></div>
 				{+END}
 
-				<div class="box box___calendar_event_screen_reminders"><div class="box_inner">
+				<div class="well well-sm well-calendar_event_screen_reminders"><div class="box_inner">
 					<h2>{!REMINDERS}</h2>
 
 					{+START,IF_NON_EMPTY,{SUBSCRIPTIONS}}
@@ -45,7 +45,7 @@
 		{+END}
 
 		<div{+START,IF_NON_EMPTY,{SUBSCRIBE_URL}} class="event_left"{+END}>
-			<div class="box box___calendar_event_screen_description"><div class="box_inner">
+			<div class="well well-sm well-calendar_event_screen_description"><div class="box_inner">
 				<h2>{!DESCRIPTION}</h2>
 
 				<div class="clearfix">

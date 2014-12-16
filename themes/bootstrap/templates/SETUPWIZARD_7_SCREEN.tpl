@@ -5,7 +5,7 @@
 <script>	document.getElementById('rules').onclick=function() { smooth_scroll(find_pos_y(document.getElementById('rules_set'))); };
 </script>
 
-<div class="box box___setupwizard_7_screen"><div class="box_inner">
+<div class="well well-sm well-setupwizard_7_screen"><div class="box_inner">
 	<h2>{!PREVIEW}</h2>
 
 	<div id="rules_set">

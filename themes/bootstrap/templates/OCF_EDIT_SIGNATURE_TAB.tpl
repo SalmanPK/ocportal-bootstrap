@@ -1,10 +1,14 @@
-<div class="ocf_current_sig_wrap"><div class="ocf_current_sig">
-	<section class="box box___ocf_edit_signature_tab"><div class="box_inner">
-		<h3>{!SIGNATURE_NOW}</h3>
+<div class="ocf-current-sig-wrap">
+	<div class="ocf-current-sig">
+		<section class="well well-sm well-ocf-edit-signature-tab">
+			<div class="well-inner">
+				<h3>{!SIGNATURE_NOW}</h3>
 
-		<div class="ocf_member_signature">{SIGNATURE}</div>
-	</div></section>
-</div></div>
+				<div class="ocf_member_signature">{SIGNATURE}</div>
+			</div>
+		</section>
+	</div>
+</div>
 
 <div class="box ocf_sig_requirements"><div class="box_inner help_jumpout">
 	<p>

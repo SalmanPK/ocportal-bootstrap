@@ -12,12 +12,12 @@
 
 {+START,SET,BUTTONS}
 	{+START,IF_NON_EMPTY,{ADD_URL}}
-		<a rel="add" href="{ADD_URL*}" class="btn btn-primary btn-page" title="{!REDIRECTING}">{$ICON,page/new}</a>
+		<a rel="add" href="{ADD_URL*}" class="btn btn-primary btn-page btn-page-new" title="{!REDIRECTING}"> {!ADD} </a>
 	{+END}
 
 	{+START,IF_PASSED,ADD_REDIRECT_URL}
 		{+START,IF_NON_EMPTY,{ADD_REDIRECT_URL}}
-			<a href="{ADD_REDIRECT_URL*}" class="btn btn-primary btn-page" title="{!REDIRECTING}">{$ICON,page/redirect</a>
+			<a href="{ADD_REDIRECT_URL*}" class="btn btn-primary btn-page btn-page-redirect" title="{!REDIRECTING}"> {!REDIRECTION} </a>
 		{+END}
 	{+END}
 {+END}

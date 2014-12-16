@@ -4,7 +4,7 @@
 	{!INFO_CONFIRM}
 </p>
 
-<div class="box box___pointstore_confirm_screen"><div class="box_inner">
+<div class="well well-pointstore_confirm_screen"><div class="box_inner">
 	{+START,IF_NON_EMPTY,{ACTION}}
 		<p>
 			{ACTION}
@@ -20,7 +20,7 @@
 
 <hr class="spaced_rule" />
 
-<div class="box box___pointstore_confirm_screen"><div class="box_inner">
+<div class="well well-pointstore_confirm_screen"><div class="box_inner">
 	<div class="clearfix">
 		<div class="pull-right">
 			<form title="{!NO}" class="inline" method="post" action="{CANCEL_URL*}">

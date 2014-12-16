@@ -1,4 +1,4 @@
-<div class="box box___flagrant_details"><div class="box_inner">
+<div class="well well-sm well-flagrant_details"><div class="box_inner">
 	<h2>{!DETAILS}</h2>
 
 	<div class="table-wrap"><table summary="{!MAP_TABLE}" class="table table-bordered table-striped table-results">

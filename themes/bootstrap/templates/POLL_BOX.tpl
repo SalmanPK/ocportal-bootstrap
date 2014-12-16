@@ -1,4 +1,4 @@
-<section class="box box___poll_box"><div class="box_inner">
+<section class="well well-sm well-poll_box"><div class="box_inner">
 	<h3>{!POLL}</h3>
 
 	<p class="poll_question">{+START,FRACTIONAL_EDITABLE,{QUESTION_PLAIN},question,_SEARCH:cms_polls:type=_edit_poll:id={PID},1}{QUESTION}{+END}</p>

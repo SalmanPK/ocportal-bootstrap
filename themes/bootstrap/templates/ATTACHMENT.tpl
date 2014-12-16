@@ -11,7 +11,7 @@
 <div class="form-group">
 	<div class="control-label">
 		<label for="file{I*}">{!UPLOAD}</label>
-		<span class="horiz_field_sep"><img class="right help_icon" data-tooltip="{!ATTACHMENT_HELP_2*,{$GET,IMAGE_TYPES}}" alt="{!HELP}" src="{$IMG*,help}"></span>
+		<a class="help-icon fa fa-question-circle" data-tooltip="{!ATTACHMENT_HELP_2=,{$GET,IMAGE_TYPES}}"></a>
 	</div>
 	<div class="control-wrap">
 		<label for="file{I*}" class="sr-only">{!UPLOAD}</label>

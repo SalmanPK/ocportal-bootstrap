@@ -1,7 +1,7 @@
 {+START,IF_PASSED_AND_TRUE,PREVIEW}{+START,IF,{$JS_ON}}{+START,IF,{$CONFIG_OPTION,enable_previews}}
 	{+START,IF_NON_PASSED_OR_FALSE,SKIP_VALIDATION}{+START,IF,{$OR,{$CONFIG_OPTION,enable_markup_validation},{$CONFIG_OPTION,enable_spell_check},{$AND,{$HAS_PRIVILEGE,perform_keyword_check},{$CONFIG_OPTION,enable_keyword_density_check}}}}
 		<div class="preview_validation_box">
-			<section class="box box___form_standard_end"><div class="box_inner">
+			<section class="well well-form_standard_end">
 				<h3>{!PERFORM_CHECKS_ON_PREVIEW}</h3>
 
 				{+START,IF,{$CONFIG_OPTION,enable_markup_validation}}
@@ -22,7 +22,7 @@
 						<label for="perform_keywordcheck"><span class="field_name">{!KEYWORDCHECK}:</span> <input title="{$STRIP_TAGS`,{!KEYWORDCHECK}}" type="checkbox" name="perform_keywordcheck" value="1" id="perform_keywordcheck" /></label>
 					</p>
 				{+END}{+END}
-			</div></section>
+			</section>
 		</div>
 	{+END}{+END}
 {+END}{+END}{+END}
@@ -58,7 +58,7 @@
 			if (typeof window.fix_form_enter_key!='undefined') fix_form_enter_key(document.getElementById('submit_button').form);
 		{+END}
 	} );
-//]]></script>
+</script>
 
 {$,Load up the staff actions template to display staff actions uniformly (we relay our parameters to it)...}
 {+START,IF,{$HAS_PRIVILEGE,see_software_docs}}{+START,IF_PASSED,STAFF_HELP_URL}{+START,IF,{$SHOW_DOCS}}

@@ -1,4 +1,4 @@
-<section class="box box___trackback_wrapper"><div class="box_inner">
+<section class="well well-sm well-trackback_wrapper"><div class="box_inner">
 	<h3>{!TRACKBACKS}</h3>
 
 	<!--

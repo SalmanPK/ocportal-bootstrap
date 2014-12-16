@@ -298,6 +298,12 @@ span.form_field_name {
 
 /* Posting forms */
 
+.hold_ctrl_note {
+	float: left;
+	font-size: 0.8em;
+	padding: 4px;
+}
+
 .word_count {
 	float: right;
 	font-size: 0.8em;

@@ -1,7 +1,7 @@
-<section class="panel panel-default panel-block_main_news">
+<section class="panel panel-default panel-block-main-news">
 	{+START,IF,{$NOT,{BLOG}}}{+START,IF_NON_EMPTY,{TITLE}}
 		<div class="panel-heading">
-			<h3>{TITLE}</h3>
+			<h3 class="panel-title">{TITLE}</h3>
 		</div>
 	{+END}{+END}
 

@@ -4,7 +4,7 @@
 	{!PT_RULES_PAGE_INTRO,{USERNAME*}}
 </p>
 
-<div class="box box___ocf_member_pt_rules_screen"><div class="box_inner">
+<div class="well well-sm well-ocf_member_pt_rules_screen"><div class="box_inner">
 	{RULES}
 </div></div>
 

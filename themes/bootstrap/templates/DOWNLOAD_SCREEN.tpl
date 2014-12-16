@@ -12,7 +12,7 @@
 	<div class="clearfix">
 		<div class="download_meta_data">
 			<div class="download_now_wrapper">
-				<div class="box box___download_screen">
+				<div class="well well-sm well-download_screen">
 					{+START,IF_PASSED,LICENCE_HYPERLINK}
 					<p class="download_licence">
 						{!D_BEFORE_PROCEED_AGREE,{LICENCE_HYPERLINK}}
@@ -125,7 +125,7 @@
 	</div>
 
 	{+START,IF_NON_EMPTY,{IMAGES_DETAILS}}
-		<div class="box box___download_screen"><div class="box_inner">
+		<div class="well well-sm well-download_screen"><div class="box_inner">
 			<h2>{!IMAGES}</h2>
 
 			{$REQUIRE_JAVASCRIPT,javascript_dyn_comcode}

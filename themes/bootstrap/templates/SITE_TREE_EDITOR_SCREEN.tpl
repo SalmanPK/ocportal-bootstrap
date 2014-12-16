@@ -2,7 +2,7 @@
 
 <div class="clearfix">
 	<div class="site_tree_right">
-		<div class="box box___site_tree_editor_screen"><div class="box_inner">
+		<div class="well well-sm well-site_tree_editor_screen"><div class="box_inner">
 			<h2>{!SELECTION_DETAILS}</h2>
 
 			<div id="details_target">
@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="site_tree_left">
-		<div class="box box___site_tree_editor_screen"><div class="box_inner">
+		<div class="well well-sm well-site_tree_editor_screen"><div class="box_inner">
 			<h2>{!SITE_TREE}</h2>
 
 			<div class="sr-only"><label for="tree_list">{!ENTRY}</label></div>

@@ -1,5 +1,5 @@
 <div class="pointstore_item">
-	<div class="box box___pointstore_custom"><div class="box_inner">
+	<div class="well well-pointstore_custom"><div class="box_inner">
 		<h2>{TITLE*}</h2>
 
 		<p>

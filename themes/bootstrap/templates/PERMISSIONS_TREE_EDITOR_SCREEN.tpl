@@ -4,7 +4,7 @@
 
 <div class="clearfix">
 	<div class="pte_help_box">
-		<div class="box box___permissions_tree_editor_screen"><div class="box_inner">
+		<div class="well well-sm well-permissions_tree_editor_screen"><div class="box_inner">
 			<h2>{!PERMISSIONS_TREE_EDITOR_HOW_WORK}</h2>
 
 			<p>{!PERMISSIONS_TREE_EDITOR_ABOUT_BARRIERS,<img src="{$IMG*,led_on}" alt="" />}</p>
@@ -20,13 +20,13 @@
 	</div>
 
 	<div>
-		<div class="box box___permissions_tree_editor_screen"><div class="box_inner">
+		<div class="well well-sm well-permissions_tree_editor_screen"><div class="box_inner">
 			<h2>{!SITE_TREE}</h2>
 
 			<div class="pte_tree">
 				<!-- onmouseover="fade_icons_out();" onmouseout="fade_icons_in();" firefox too buggy -->
 				<div class="pte_icon_box">
-					<div class="box box___permissions_tree_editor_screen"><div class="box_inner">
+					<div class="well well-sm well-permissions_tree_editor_screen"><div class="box_inner">
 						<form title="{!CHOOSE} {!_USERGROUP}" action="index.php" method="post">
 							<img alt="" src="{$IMG*,pte_view_help}" /><strong><label for="group">{!PERMISSIONS_TREE_EDITOR_ICON_LABEL}:</label></strong>
 							<select id="group" name="group" onclick="this.onchange(event);" onchange="update_group_displayer(this)">
@@ -58,7 +58,7 @@
 </div>
 
 <div class="pte_set_box">
-	<div class="box box___permissions_tree_editor_screen"><div class="box_inner">
+	<div class="well well-sm well-permissions_tree_editor_screen"><div class="box_inner">
 		<h2>{!PERMISSIONS_TREE_EDITOR_PERMISSIONS_FOR_SELECTION}</h2>
 
 		<p>

@@ -25,8 +25,6 @@
 				<div class="ocf-forum-box-left{+START,IF_NON_EMPTY,{CLASS}} {CLASS*}{+END}">
 					<h2 class="sr-only">{!FORUM_POST}</h2>
 
-					{EMPHASIS*}
-
 					{+START,IF_NON_EMPTY,{ID}}<a id="post_{ID*}"></a>{+END}
 
 					{FIRST_UNREAD}
@@ -37,17 +35,23 @@
 				</div>
 
 				{+START,IF_NON_EMPTY,{POSTER}}
-				{+START,IF_PASSED,RATING}
-				<div class="ocf-post-details-rating">
-					{RATING}
-				</div>
-				{+END}
+					{+START,IF_PASSED,RATING}
+					<div class="ocf-post-details-rating">
+						{RATING}
+					</div>
+					{+END}
 
-				{+START,IF_NON_EMPTY,{UNVALIDATED}}
-				<div class="ocf-post-details-unvalidated">
-					{UNVALIDATED*}
-				</div>
-				{+END}
+					{+START,IF_NON_EMPTY,{EMPHASIS}}
+					<div class="ocf-post-details-emphasis label {$?,{$EQ,{EMPHASIS},{!IMPORTANT}},label-danger,label-primary} {CLASS*}">
+						{EMPHASIS*}
+					</div>
+					{+END}
+
+					{+START,IF_NON_EMPTY,{UNVALIDATED}}
+						<div class="ocf-post-details-unvalidated">
+							{UNVALIDATED*}
+						</div>
+					{+END}
 				{+END}
 
 				<div class="ocf-post-details-grapple">
@@ -105,10 +109,6 @@
 	</div>
 
 	<div class="ocf-post-footer clearfix">
-		<div class="ocf-left-post-buttons {CLASS*}">
-			{EMPHASIS*}
-		</div>
-
 		<div class="btn-toolbar ocf-post-buttons">
 			{BUTTONS}
 		</div>

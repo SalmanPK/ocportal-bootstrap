@@ -1,5 +1,5 @@
 {+START,IF,{$NOT,{$VALUE_OPTION,xhtml_strict}}}
-	<div class="box box___newsletter_confirm_wrap"><div class="box_inner">
+	<div class="well well-sm well-newsletter_confirm_wrap"><div class="box_inner">
 		<h2>{SUBJECT*} &ndash; {!HTML_VERSION}</h2>
 
 		<iframe{$?,{$BROWSER_MATCHES,ie}, frameBorder="0" scrolling="no"} id="preview_frame" name="preview_frame" title="{!PREVIEW}" class="hidden_preview_frame" src="{$BASE_URL*}/uploads/index.html">{!PREVIEW}</iframe>
@@ -34,7 +34,7 @@
 	</div></div>
 
 	{+START,IF_NON_EMPTY,{TEXT_PREVIEW}}
-		<div class="box box___newsletter_confirm_wrap"><div class="box_inner">
+		<div class="well well-sm well-newsletter_confirm_wrap"><div class="box_inner">
 			<h2>{SUBJECT*} &ndash; {!TEXT_VERSION}</h2>
 
 			<div class="whitespace_visible">{TEXT_PREVIEW*}</div>

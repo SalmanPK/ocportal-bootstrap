@@ -1,44 +1,46 @@
-<div class="table-wrap">
-	<table summary="{!COLUMNED_TABLE}" class="table table-bordered table-striped table-topic-list">
-		<thead>
+<div class="ocf-topic-list">
+	<div class="ocf-topic-list-body">
+		<table class="table table-bordered table-striped table-topic-list">
+			<thead>
 			<tr>
 				{+START,IF,{$CONFIG_OPTION,is_on_topic_emoticons}}
-					<th class="col-topic-emoticons"></th>
+					<th class="col col-topic-emoticons"></th>
 				{+END}
-				<th class="col-title">{!TITLE}</th>
-				<th class="col-starter-title">{!STARTER}{STARTER_TITLE*}</th>
-				<th class="col-num-posts">{!COUNT_POSTS}</th>
-				<th class="col-num-views">{!COUNT_VIEWS}</th>
-				<th class="col-last-post">{!LAST_POST}</th>
+				<th class="col col-topic-title">{!TITLE}</th>
+				<th class="col col-starter-title">{!STARTER}{STARTER_TITLE*}</th>
+				<th class="col col-num-posts">{!COUNT_POSTS}</th>
+				<th class="col col-num-views">{!COUNT_VIEWS}</th>
+				<th class="col col-last-post">{!LAST_POST}</th>
 
 				{+START,IF_NON_EMPTY,{MODERATOR_ACTIONS}}
-					<th class="col-moderator-actions">
-						<a href="#" onclick="event.returnValue=false; mark_all_topics(event); return false;"><img src="{$IMG*,ocf_topic_modifiers/unvalidated}" alt="{!TOGGLE_SELECTION}" title="{!TOGGLE_SELECTION}" /></a>
-					</th>
+				<th class="col col-moderator-actions">
+					<a href="javascript:" onclick="event.returnValue=false; mark_all_topics(event);"><img src="{$IMG*,ocf_topic_modifiers/unvalidated}" alt="{!TOGGLE_SELECTION}" title="{!TOGGLE_SELECTION}" /></a>
+				</th>
 				{+END}
 			</tr>
-		</thead>
+			</thead>
 
-		<tbody>
+			<tbody>
 			{TOPICS}
-		</tbody>
+			</tbody>
 
-		<tfoot>
-			<tr>
-				{+START,IF,{$CONFIG_OPTION,is_on_topic_emoticons}}
-					<td class="col-topic-emoticons"></td>
-				{+END}
-				<td class="col-title"></td>
-				<td class="col-starter-title"></td>
-				<td class="col-num-posts"></td>
-				<td class="col-num-views"></td>
-				<td class="col-last-post"></td>
-				{+START,IF_NON_EMPTY,{MODERATOR_ACTIONS}}
-					<td class="col-moderator-actions"></td>
-				{+END}
-			</tr>
-		</tfoot>
-	</table>
+			<tfoot>
+				<tr>
+					{+START,IF,{$CONFIG_OPTION,is_on_topic_emoticons}}
+						<td class="col col-topic-emoticons"></td>
+					{+END}
+					<td class="col col-topic-title"></td>
+					<td class="col col-starter-title"></td>
+					<td class="col col-num-posts"></td>
+					<td class="col col-num-views"></td>
+					<td class="col col-last-post"></td>
+					{+START,IF_NON_EMPTY,{MODERATOR_ACTIONS}}
+					<td class="col col-moderator-actions"></td>
+					{+END}
+				</tr>
+			</tfoot>
+		</table>
+	</div>
 </div>
 
 {+START,IF_NON_EMPTY,{PAGINATION}}
@@ -71,12 +73,12 @@
 
 					<label for="max">{!PER_PAGE}:</label>
 					<select name="max" id="max" class="form-control input-sm" {+START,IF,{$JS_ON}} onchange="this.form.submit();"{+END}>
-						<option value="10"{$?,{$EQ,{MAX},10}, selected="selected",}>10</option>
-						<option value="20"{$?,{$EQ,{MAX},20}, selected="selected",}>20</option>
-						<option value="30"{$?,{$EQ,{MAX},30}, selected="selected",}>30</option>
-						<option value="50"{$?,{$EQ,{MAX},50}, selected="selected",}>50</option>
-						<option value="100"{$?,{$EQ,{MAX},100}, selected="selected",}>100</option>
-						<option value="300"{$?,{$EQ,{MAX},300}, selected="selected",}>300</option>
+						<option value="10"{$?,{$EQ,{MAX},10}, selected,}>10</option>
+						<option value="20"{$?,{$EQ,{MAX},20}, selected,}>20</option>
+						<option value="30"{$?,{$EQ,{MAX},30}, selected,}>30</option>
+						<option value="50"{$?,{$EQ,{MAX},50}, selected,}>50</option>
+						<option value="100"{$?,{$EQ,{MAX},100}, selected,}>100</option>
+						<option value="300"{$?,{$EQ,{MAX},300}, selected,}>300</option>
 					</select>
 
 					{+START,IF,{$NOT,{$JS_ON}}}

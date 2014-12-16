@@ -10,30 +10,37 @@ if (typeof window.page_loaded=='undefined')
 }
 
 jQuery(function ($) {
+	activateBootstrapPlugins();
+
 	// Trigger resize for Bootstrap collapse plugin
 	$('.collapse').on('shown.bs.collapse hidden.bs.collapse', function () {
 		trigger_resize(true);
 	});
+});
+
+
+function activateBootstrapPlugins(parent) {
+	parent = parent || document;
 
 	// Enable Bootstrap tooltips
-	$('[data-toggle="tooltip"]').tooltip({ container: 'body', html: true });
+	$('[data-toggle="tooltip"]', parent).tooltip({ container: 'body', html: true });
 
-	// For when the title attribute is not appropriate
-	$('[data-tooltip]').each(function () {
+	// For use when the title attribute is not appropriate
+	$('[data-tooltip]', parent).each(function () {
 		var $this = $(this);
 
 		$this.tooltip({container: 'body', title: $this.data('tooltip'), html: true});
 	});
 
 	// Enable Bootstrap pop-overs
-	 $('[data-toggle="popover"]').popover({ container: 'body' });
+	 $('[data-toggle="popover"]', parent).popover({ container: 'body' });
 
 	 /* Custom helper plugins called by adding a data attribute */
 
-	 $('[data-ajax]').click(function (e) { // Makes an ajax request with the options provided on click
-	 	var $this = $(this),
-	 		params = $this.attr('data-ajax'),
-	 		options;
+	 $('[data-ajax]', parent).click(function (e) { // Makes an ajax request with the options provided, on click
+		var $this = $(this),
+			params = $this.attr('data-ajax'),
+			options;
 
 		try {
 			options = JSON.parse(params);
@@ -46,15 +53,15 @@ jQuery(function ($) {
 		e.preventDefault();
 	 });
 
-	 $('[data-remove]').click(function () { // Remove elements matched by the selector provided on click
-	 	var $this = $(this),
-	 		selector = $this.attr('data-remove');
+	 $('[data-remove]', parent).click(function () { // Remove elements matched by the selector provided on click
+		var $this = $(this),
+			selector = $this.attr('data-remove');
 
 		$(selector).remove();
 
-	 	e.preventDefault();
+		e.preventDefault();
 	 });
-});
+}
 
 function script_load_stuff()
 {
@@ -95,17 +102,12 @@ function script_load_stuff()
 		}
 	}
 
-	for (i=0;i<document.forms.length;i++)
-	{
+	for (i=0;i<document.forms.length;i++) {
 		new_html__initialise(document.forms[i]);
 	}
-	for (i=0;i<document.links.length;i++)
-	{
+
+	for (i=0;i<document.links.length;i++) {
 		new_html__initialise(document.links[i]);
-	}
-	for (i=0;i<document.images.length;i++)
-	{
-		new_html__initialise(document.images[i]);
 	}
 
 	/* Staff functionality */
@@ -136,7 +138,7 @@ function script_load_stuff()
 	}
 
 	/* Pinning to top if scroll out */
-	var stuck_navs=jQuery(document).find('.stuck_nav');
+	var stuck_navs=$(document).find('.stuck_nav');
 	if (stuck_navs.length>0)
 	{
 		add_event_listener_abstract(window,'scroll',function () {
@@ -228,13 +230,6 @@ function new_html__initialise(element)
 {
 	switch (element.nodeName.toLowerCase())
 	{
-		case 'img':
-			/* Convert a/img title attributes into ocPortal tooltips */
-			{+START,IF,{$CONFIG_OPTION,js_overlays}}
-				convert_tooltip(element);
-			{+END}
-			break;
-
 		case 'a':
 			/* Lightboxes */
 			{+START,IF,{$CONFIG_OPTION,js_overlays}}
@@ -250,56 +245,25 @@ function new_html__initialise(element)
 				}
 			{+END}
 
-			/* Convert a/img title attributes into ocPortal tooltips */
-			{+START,IF,{$CONFIG_OPTION,js_overlays}}
-				convert_tooltip(element);
-			{+END}
 			break;
 
 		case 'form':
-			if (element.className.indexOf('autocomplete')!=-1)
-			{
+			if (element.className.indexOf('autocomplete')!=-1) {
 				element.setAttribute('autocomplete','on');
-			} else
-			{
+			} else {
 				var dont_autocomplete=['edit_username','edit_password'];
 				for (var j=0;j<dont_autocomplete.length;j++) /* Done in very specific way, as Firefox will nuke any explicitly non-autocompleted values when clicking back also */
 					if (element.elements[dont_autocomplete[j]]) element.elements[dont_autocomplete[j]].setAttribute('autocomplete','off');
 			}
 
 			/* HTML editor */
-			if (typeof window.load_html_edit!='undefined')
-			{
+			if (typeof window.load_html_edit !== 'undefined') {
 				load_html_edit(element);
 			}
 
 			/* Remove tooltips from forms for mouse users as they are for screenreader accessibility only */
-			if (element.getAttribute('target')!='_blank')
-				add_event_listener_abstract(element,'mouseover',function() { try {element.setAttribute('title','');element.title='';}catch(e){};/*IE6 does not like*/ } );
-
-			/* Convert a/img title attributes into ocPortal tooltips */
-			{+START,IF,{$CONFIG_OPTION,js_overlays}}
-				//convert_tooltip(element);	Not useful
-
-				/* Convert a/img title attributes into ocPortal tooltips */
-				var elements,j;
-				elements=element.elements;
-				for (j=0;j<elements.length;j++)
-				{
-					if (typeof elements[j].title!='undefined')
-					{
-						convert_tooltip(elements[j]);
-					}
-				}
-				elements=element.getElementsByTagName('input'); // Lame, but JS DOM does not include type="image" ones in form.elements
-				for (j=0;j<elements.length;j++)
-				{
-					if ((elements[j].type=='image') && (typeof elements[j].title!='undefined'))
-					{
-						convert_tooltip(elements[j]);
-					}
-				}
-			{+END}
+			if (element.getAttribute('target') !== '_blank')
+				add_event_listener_abstract(element,'mouseover',function() { element.setAttribute('title',''); element.title='';} );
 
 			break;
 	}
@@ -389,7 +353,7 @@ function staff_unload_action()
 }
 function undo_staff_unload_action()
 {
-	var pre=jQuery(document.body).find('.unload_action');
+	var pre=$(document.body).find('.unload_action');
 	for (var i=0;i<pre.length;i++)
 	{
 		pre[i].parentNode.removeChild(pre[i]);
@@ -502,8 +466,7 @@ function handle_textarea_scrolling()
 
 /* Ask a user a question: they must click a button */
 // 'Cancel' should come as index 0 and Ok/default-option should come as index 1. This is so that the fallback works right.
-function generate_question_ui(message,button_set,window_title,fallback_message,callback)
-{
+function generate_question_ui(message,button_set,window_title,fallback_message,callback) {
 	var image_set=[];
 	if (typeof button_set.length=='undefined')
 	{
@@ -681,11 +644,11 @@ function script_page_rendered()
 				var divs=panel_right.getElementsByTagName('div');
 				if ((divs[0]) && (divs[0].className.indexOf('global_helper_panel')!=-1))
 				{
-					var middle=jQuery(panel_right.parentNode).find('.global_middle')[0];
+					var middle=$(panel_right.parentNode).find('.global_middle')[0];
 					if (middle)
 					{
 						middle.style.marginRight='0';
-						var boxes=jQuery(panel_right).find('.standardbox_curved'),i;
+						var boxes=$(panel_right).find('.standardbox_curved'),i;
 						for (i=0;i<boxes.length;i++)
 						{
 							boxes[i].style.width='auto';
@@ -694,7 +657,7 @@ function script_page_rendered()
 						panel_right.parentNode.removeChild(panel_right);
 						middle.parentNode.appendChild(panel_right);
 						document.getElementById('helper_panel_toggle').style.display='none';
-						jQuery(panel_right).find('.global_helper_panel')[0].style.minHeight='0';
+						$(panel_right).find('.global_helper_panel')[0].style.minHeight='0';
 					}
 				}
 			}
@@ -706,7 +669,7 @@ function script_page_rendered()
 function help_panel(show)
 {
 	var panel_right=document.getElementById('panel_right');
-	var middles=jQuery(document).find('.global_middle');
+	var middles=$(document).find('.global_middle');
 	var global_message=document.getElementById('global_message');
 	var helper_panel_contents=document.getElementById('helper_panel_contents');
 	var helper_panel_toggle=document.getElementById('helper_panel_toggle');
@@ -857,7 +820,7 @@ function first_class_name(class_name)
 /* Finding elements by class name */
 function get_elements_by_class_name(node,class_name)
 {
-	return jQuery(node).find('.' + class_name);
+	return $(node).find('.' + class_name);
 }
 /* Type checking */
 function is_integer(val)
@@ -1025,7 +988,6 @@ function require_css(sheet)
 	if (document.getElementById('loading_css_'+sheet)) return;
 	var link=document.createElement('link');
 	link.setAttribute('id','loading_css_'+sheet);
-	link.setAttribute('type',"text/css");
 	link.setAttribute('rel',"stylesheet");
 	link.setAttribute('href',"{$FIND_SCRIPT_NOHTTP#,sheet}?sheet="+sheet+keep_stub());
 	document.getElementsByTagName('head')[0].appendChild(link);
@@ -1035,7 +997,6 @@ function require_javascript(script,lang)
 	if (document.getElementById('loading_js_'+script)) return;
 	var link=document.createElement('script');
 	link.setAttribute('id','loading_js_'+script);
-	link.setAttribute('type',"text/javascript");
 	var url="{$FIND_SCRIPT_NOHTTP#,javascript}?script="+script+keep_stub();
 	if (lang) url=url+"&lang="+lang;
 	link.setAttribute('src',url);
@@ -1060,8 +1021,13 @@ function find_url_tab()
 }
 function select_tab(id,tab)
 {
-	if (document.getElementById('tab__'+tab.toLowerCase()))
-		window.location.hash='#tab__'+tab.toLowerCase();
+	var $anchor = $('#tab__'+tab.toLowerCase());
+
+	if ($anchor.length) {
+		$anchor.removeAttr('id');
+		window.location.hash = '#tab__'+tab.toLowerCase();
+		$anchor.attr('id', '#tab__'+tab.toLowerCase());
+	}
 
 	var tabs=[];
 	var i,element,child;
@@ -1097,15 +1063,6 @@ function select_tab(id,tab)
 					element.style.height='0';
 				}
 			{+END}
-
-			if ((typeof window.fade_transition!='undefined') && (tabs[i]==tab))
-			{
-				if (typeof window['load_tab__'+tab]=='undefined')
-				{
-					set_opacity(element,0.0);
-					fade_transition(element,100,30,8);
-				}
-			}
 		}
 
 		element=document.getElementById('t_'+tabs[i]);
@@ -1127,178 +1084,6 @@ function set_display_with_aria(element,mode)
 {
 	element.style.display=mode;
 	element.setAttribute('aria-hidden',(mode=='none')?'true':'false');
-}
-function toggleable_tray(element,no_animate,cookie_id_name)
-{
-	if (typeof element=='string') element=document.getElementById(element);
-	if (!element) return;
-
-	if (element.className.indexOf('toggleable_tray')==-1) // Suspicious, maybe we need to probe deeper
-	{
-		var toggleables=jQuery(element).find('.toggleable_tray');
-		if (typeof toggleables[0]!='undefined') element=toggleables[0];
-	}
-
-	if (typeof cookie_id_name!='undefined')
-	{
-		set_cookie('tray_'+cookie_id_name,(element.style.display=='none')?'open':'closed'); 
-	}
-
-	var type='block';
-	if (element.nodeName.toLowerCase()=='table') type='table';
-	if (element.nodeName.toLowerCase()=='tr') type='table-row';
-
-	{+START,IF,{$VALUE_OPTION,disable_animations}}
-		no_animate=true;
-	{+END}
-
-	var _pic=jQuery(element.parentNode).find('.toggleable_tray_button');
-	var pic;
-	if (typeof _pic[0]!='undefined')
-	{
-		pic=_pic[0].getElementsByTagName('img')[0];
-	} else
-	{
-		pic=document.getElementById('e_'+element.id);
-	}
-	if ((pic) && (pic.src=='{$IMG;,exp_con}'.replace(/^http:/,window.location.protocol))) return; // Currently in action
-
-	element.setAttribute('aria-expanded',(type=='none')?'false':'true');
-
-	if (element.style.display=='none')
-	{
-		element.style.display=type;
-		if ((type=='block') && (element.nodeName.toLowerCase()=='div') && (!no_animate) && ((!pic) || (pic.src.indexOf('themewizard.php')==-1)))
-		{
-			element.style.visibility='hidden';
-			element.style.width=find_width(element)+'px';
-			element.style.position='absolute'; /* So things do not just around now it is visible */
-			if (pic)
-			{
-				pic.src='{$IMG;,exp_con}'.replace(/^http:/,window.location.protocol);
-			}
-			window.setTimeout(function() { begin_toggleable_tray_animation(element,20,70,-1,pic); } ,20);
-		} else
-		{
-			if (typeof window.fade_transition!='undefined')
-			{
-				set_opacity(element,0.0);
-				fade_transition(element,100,30,4);
-			}
-
-			if (pic)
-			{
-				pic.src=((pic.src.indexOf('themewizard.php')!=-1)?pic.src.replace('expand','contract'):'{$IMG;,contract}').replace(/^http:/,window.location.protocol);
-			}
-		}
-	} else
-	{
-		if ((type=='block') && (element.nodeName.toLowerCase()=='div') && (!no_animate) && ((!pic) || (pic.src.indexOf('themewizard.php')==-1)))
-		{
-			if (pic)
-			{
-				pic.src='{$IMG;,exp_con}'.replace(/^http:/,window.location.protocol);
-			}
-			window.setTimeout(function() { begin_toggleable_tray_animation(element,-20,70,0,pic); } ,20);
-		} else
-		{
-			if (pic)
-			{
-				pic.src=((pic.src.indexOf("themewizard.php")!=-1)?pic.src.replace('contract','expand'):'{$IMG;,expand}').replace(/^http:/,window.location.protocol);
-				pic.setAttribute('alt',pic.getAttribute('alt').replace('{!CONTRACT;}','{!EXPAND;}'));
-				pic.title='{!EXPAND;}'; // Needs doing because convert_tooltip may not have run yet
-				pic.ocp_tooltip_title='{!EXPAND;}';
-			}
-			element.style.display='none';
-		}
-	}
-
-	trigger_resize(true);
-
-	return false;
-}
-function begin_toggleable_tray_animation(element,animate_dif,animate_ticks,final_height,pic)
-{
-	var fullHeight=find_height(element,true);
-	if (final_height==-1) // We're animating to full height - not a fixed height
-	{
-		final_height=fullHeight;
-		element.style.height='0px';
-		element.style.visibility='visible';
-		element.style.position='static';
-	}
-	if (fullHeight>300) /* Quick finish in the case of huge expand areas */
-	{
-		animate_dif*=6;
-	}
-	element.style.outline='1px dashed gray';
-
-	if (typeof window.fade_transition!='undefined')
-	{
-		if (final_height==0)
-		{
-			set_opacity(element,1.0);
-			fade_transition(element,0,30,4);
-		} else
-		{
-			set_opacity(element,0.0);
-			fade_transition(element,100,30,4);
-		}
-	}
-
-	var orig_overflow=element.style.overflow;
-	element.style.overflow='hidden';
-	if (browser_matches('firefox')) element.parentNode.style.overflow='hidden'; // Stops weird issue on Firefox
-	window.setTimeout(function () { toggleable_tray_animate(element,final_height,animate_dif,orig_overflow,animate_ticks,pic); } ,animate_ticks);
-}
-function toggleable_tray_animate(element,final_height,animate_dif,orig_overflow,animate_ticks,pic)
-{
-	var current_height=((element.style.height=='auto')||(element.style.height==''))?(find_height(element)):sts(element.style.height);
-	/*if (Math.max(current_height-final_height,final_height-current_height)<70)
-	{
-		if (animate_dif<0) animate_dif=Math.min(animate_dif*0.8,-3);
-		else animate_dif=Math.max(animate_dif*0.85,3);
-	}*/
-	if (((current_height>final_height) && (animate_dif<0)) || ((current_height<final_height) && (animate_dif>0)))
-	{
-		var num=Math.max(current_height+animate_dif,0);
-		if (animate_dif>0) num=Math.min(num,final_height);
-		element.style.height=num+'px';
-		window.setTimeout(function () { toggleable_tray_animate(element,final_height,animate_dif,orig_overflow,animate_ticks,pic); } ,animate_ticks);
-	} else
-	{
-		element.style.height='auto';
-		if (animate_dif<0)
-		{
-			element.style.display='none';
-		}
-		element.style.overflow=orig_overflow;
-		if (browser_matches('firefox')) element.parentNode.style.overflow=''; // Stops weird issue on Firefox
-		element.style.outline='0';
-		if (pic)
-		{
-			pic.src=((animate_dif<0)?'{$IMG;,expand}':'{$IMG;,contract}').replace(/^http:/,window.location.protocol);
-			pic.setAttribute('alt',pic.getAttribute('alt').replace((animate_dif<0)?'{!CONTRACT;}':'{!EXPAND;}',(animate_dif<0)?'{!EXPAND;}':'{!CONTRACT;}'));
-			pic.ocp_tooltip_title=(animate_dif<0)?'{!EXPAND;}':'{!CONTRACT;}';
-		}
-		trigger_resize(true);
-	}
-}
-function handle_tray_cookie_setting(id)
-{
-	var cookie_value=read_cookie('tray_'+id);
-	var element=document.getElementById('tray_'+id);
-	if (!element) element=document.getElementById(id);
-	if (!element) return;
-
-	if (element.className.indexOf('toggleable_tray')==-1) // Suspicious, maybe we need to probe deeper
-	{
-		var toggleables=jQuery(element).find('.toggleable_tray');
-		if (typeof toggleables[0]!='undefined') element=toggleables[0];
-	}
-
-	if (((element.style.display=='none') && (cookie_value=='open')) || ((element.style.display!='none') && (cookie_value=='closed')))
-		toggleable_tray(element,true);
 }
 
 /* Animate the loading of a frame */
@@ -1814,7 +1599,7 @@ function activate_tooltip(ac,myevent,tooltip,width,pic,height,bottom,no_delay,li
 	if ((typeof tooltip!='function') && (tooltip=='')) return;
 
 	// Delete other tooltips, which due to browser bugs can get stuck
-	var existing_tooltips=jQuery(document.body).find('.tooltip');
+	var existing_tooltips=$(document.body).find('.tooltip');
 	for (var i=0;i<existing_tooltips.length;i++)
 	{
 		if (existing_tooltips[i].id!=ac.tooltipId) existing_tooltips[i].parentNode.removeChild(existing_tooltips[i]);
@@ -2419,22 +2204,20 @@ function inner_html_load(xml_string) {
 /* recursively copy the XML (from xml_doc) into the DOM (under dom_node) */
 function inner_html_copy(dom_node,xml_doc,level,script_tag_dependencies) {
 	if (typeof level=='undefined') level=1;
+
+	if (typeof script_tag_dependencies === 'undefined') {
+		script_tag_dependencies = { 'to_run': [], 'to_load': [] };
+	}
+
 	if (level>1) {
 		var node_upper=xml_doc.nodeName.toUpperCase();
 
-		if ((node_upper=='SCRIPT') && (!xml_doc.getAttribute('src')))
-		{
+		if ((node_upper=='SCRIPT') && (!xml_doc.getAttribute('src'))) {
 			var text=(xml_doc.nodeValue?xml_doc.nodeValue:(xml_doc.textContent?xml_doc.textContent:(xml_doc.text?xml_doc.text:"")));
 			if (script_tag_dependencies['to_load'].length==0)
 			{
 				window.setTimeout(function() {
-					if (typeof window.execScript!='undefined')
-					{
-						window.execScript(text);
-					} else
-					{
-						eval.call(window,text);
-					}
+					eval.call(window,text);
 				},0);
 			} else
 			{
@@ -2461,8 +2244,7 @@ function inner_html_copy(dom_node,xml_doc,level,script_tag_dependencies) {
 			}
 
 			// append node
-			if ((node_upper=='SCRIPT') || (node_upper=='LINK')/* || (node_upper=='STYLE') Causes weird IE bug*/)
-			{
+			if ((node_upper=='SCRIPT') || (node_upper=='LINK')/* || (node_upper=='STYLE') Causes weird IE bug*/) {
 				if (node_upper=='SCRIPT')
 				{
 					script_tag_dependencies['to_load'].push(this_node);
@@ -2481,13 +2263,7 @@ function inner_html_copy(dom_node,xml_doc,level,script_tag_dependencies) {
 							{
 								for (i=0;i<script_tag_dependencies['to_run'].length;i++)
 								{
-									if (typeof window.execScript!='undefined')
-									{
-										window.execScript(script_tag_dependencies['to_run'][i]);
-									} else
-									{
-										eval.call(window,script_tag_dependencies['to_run'][i]);
-									}
+									eval.call(window,script_tag_dependencies['to_run'][i]);
 								}
 								script_tag_dependencies['to_run']=[]; // So won't run again, if both onreadystatechange and onload implemented in browser
 							}
@@ -2589,31 +2365,28 @@ function set_outer_html(element,tHTML)
 
 /* Put some new HTML into the given element */
 // Note that embedded Javascript IS run unlike the normal .innerHTML - in fact we go to effort to guarantee it - even onload attached Javascript
-function set_inner_html(element,tHTML,append)
-{
+function set_inner_html(element,tHTML,append) {
 	/* Parser hint: .innerHTML okay */
 	if (typeof tHTML=='number') tHTML=tHTML+'';
 
 	if ((document.write) && (typeof element.innerHTML!='undefined') && (!document.xmlVersion) && (tHTML.toLowerCase().indexOf('<script type="text/javascript src="')==-1) && (tHTML.toLowerCase().indexOf('<link')==-1))
 	{
 		var clone=element.cloneNode(true);
-		try
-		{
+		try {
 			var scripts_jump=0,already_offset=0;
-			if (append)
-			{
+			if (append) {
 				scripts_jump=element.getElementsByTagName('script').length;
 				element.innerHTML+=tHTML;
 				already_offset=element.getElementsByTagName('*').length
-			} else
-			{
+			} else {
 				element.innerHTML=tHTML;
 			}
 
 			window.setTimeout(function() {
+				activateBootstrapPlugins(element);
+
 				var elements=element.getElementsByTagName('*');
-				for (var i=already_offset;i<elements.length;i++)
-				{
+				for (var i=already_offset;i<elements.length;i++) {
 					new_html__initialise(elements[i]);
 				}
 			}, 0); // Delayed so we know DOM has loaded
@@ -2633,20 +2406,14 @@ function set_inner_html(element,tHTML,append)
 							if (!scripts[i].src) // i.e. if it is inline JS
 							{
 								var text=(scripts[i].nodeValue?scripts[i].nodeValue:(scripts[i].textContent?scripts[i].textContent:(scripts[i].text?scripts[i].text.replace(/^<script[^>]*>/,''):"")));
-								if (typeof window.execScript!='undefined')
-								{
-									window.execScript(text);
-								} else
-								{
-									eval.call(window,text);
-								}
+
+								eval.call(window,text);
 							}
 						}
 						window['js_runs_test_'+r_id]=true;
 					} else
 					{
-						var r=document.getElementById(r_id);
-						r.parentNode.removeChild(r);
+						$(document.getElementById(r_id)).remove();
 					}
 				}, 0); // Delayed so we know DOM has loaded
 			}
@@ -2662,13 +2429,11 @@ function set_inner_html(element,tHTML,append)
 	tHTML="<root>"+tHTML.replace(/^\s*\<\!DOCTYPE[^<>]*\>/,'')+"</root>";
 	var xml_doc=inner_html_load(tHTML);
 	if (element && xml_doc) {
-		if (!append) while (element.lastChild) element.removeChild(element.lastChild);
+		if (!append) $(element).empty();
 
-		var script_tag_dependencies={
-			'to_run': [],
-			'to_load': []
-		};
-		inner_html_copy.call(window,element,(typeof xml_doc.documentElement=='undefined')?xml_doc:xml_doc.documentElement,1,script_tag_dependencies);
+		inner_html_copy.call(window,element,(typeof xml_doc.documentElement=='undefined')?xml_doc:xml_doc.documentElement);
+
+		activateBootstrapPlugins(element);
 	}
 }
 
@@ -2868,7 +2633,7 @@ function replace_comments_form_with_ajax(options,hash)
 			disable_button_just_clicked(document.getElementById('submit_button'));
 
 			// Note what posts are shown now
-			var known_posts=jQuery(comments_wrapper).find('.post');
+			var known_posts=$(comments_wrapper).find('.post');
 			var known_times=[];
 			for (var i=0;i<known_posts.length;i++)
 			{
@@ -2906,7 +2671,7 @@ function replace_comments_form_with_ajax(options,hash)
 						toggleable_tray('comments_posting_form_outer');
 
 					// Set fade for posts not shown before
-					var known_posts=jQuery(comments_wrapper).find('.post');
+					var known_posts=$(comments_wrapper).find('.post');
 					for (var i=0;i<known_posts.length;i++)
 					{
 						if (!known_times.inArray(known_posts[i].className.replace(/^post /,'')))
@@ -2955,9 +2720,6 @@ function topic_reply(is_threaded,ob,id,replying_to_username,replying_to_post,rep
 
 	smooth_scroll(find_pos_y(form,true));
 
-	if (document.getElementById('comments_posting_form_outer').style.display=='none')
-		toggleable_tray('comments_posting_form_outer');
-
 	if (is_threaded)
 	{
 		post.value='{!QUOTED_REPLY_MESSAGE;^}'.replace(/\\{1\\}/g,replying_to_username).replace(/\\{2\\}/g,replying_to_post_plain);
@@ -2989,7 +2751,7 @@ function threaded_load_more(ob,ids,id)
 		{
 			wrapper=ob.parentNode;
 		}
-		ob.parentNode.removeChild(ob);
+		$(ob).remove();
 
 		set_inner_html(wrapper,ajax_result.responseText,true);
 

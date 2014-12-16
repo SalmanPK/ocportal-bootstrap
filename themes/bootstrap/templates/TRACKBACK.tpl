@@ -1,4 +1,4 @@
-<div class="box box___trackback"><div class="box_inner">
+<div class="well well-sm well-trackback"><div class="box_inner">
 	<h4>{TITLE*} &ndash; {TIME*} <a class="associated-link horiz_field_sep" href="{URL*}">{NAME*}</a></h4>
 
 	{+START,IF_NON_EMPTY,{EXCERPT}}

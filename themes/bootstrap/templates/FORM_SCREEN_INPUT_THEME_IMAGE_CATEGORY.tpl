@@ -1,12 +1,11 @@
 {+START,IF_NON_EMPTY,{CATEGORY_NAME}}
-	<div>
-		<h2>
-			<a class="toggleable_tray_button" href="#" onclick="return toggleable_tray(this.parentNode.parentNode);"><img alt="{!EXPAND}: {CATEGORY_NAME*}" title="{!EXPAND}" src="{$IMG*,expand}" /></a>
-			<a class="toggleable_tray_button" href="#" onclick="return toggleable_tray(this.parentNode.parentNode);">{CATEGORY_NAME*}</a>
-		</h2>
+	<div class="panel panel-default panel-collapsible panel-form-screen-input-theme-image-category">
+		<a href="javascript:" class="panel-heading {$?,{$EQ,{DISPLAY*},none},collapsed,}" data-toggle="collapse" data-target="#collapse-image-category-{$LCASE|,{CATEGORY_NAME}}">
+			<h3 class="panel-title">{CATEGORY_NAME*}</h3>
+		</a>
 
-		<div class="toggleable_tray" style="display: {$JS_ON,{DISPLAY*},block}"{+START,IF,{$EQ,{DISPLAY},none}} aria-expanded="false"{+END}>
-			<div class="clearfix">
+		<div class="panel-collapse collapse {$?,{$EQ,{DISPLAY*},block},in,}" id="collapse-image-category-{$LCASE|,{CATEGORY_NAME}}">
+			<div class="panel-body">
 				{CATEGORY}
 			</div>
 		</div>

@@ -1,13 +1,13 @@
 <div class="clearfix">
-	<div class="ocf_avatar_page_old_avatar">
+	<div class="ocf-avatar_page-old-avatar right">
 		{+START,IF_NON_EMPTY,{PHOTO}}
-			<img class="ocf_topic_post_avatar" alt="{!PHOTO}" src="{PHOTO*}" />
+			<img class="ocf-topic-post-avatar" alt="{!PHOTO}" src="{PHOTO*}">
 		{+END}
 		{+START,IF_EMPTY,{PHOTO}}
 			{!NONE_EM}
 		{+END}
 	</div>
-	<div class="ocf_avatar_page_text">
+	<div class="ocf-avatar-page-text">
 		<p>{!PHOTO_CHANGE,{USERNAME*}}</p>
 
 		{TEXT}

@@ -5,7 +5,7 @@
 </p>
 
 {+START,IF,{$_GET,keep_fatalistic}}
-	<div class="box box___fatal_screen"><div class="box_inner">
+	<div class="well well-sm well-fatal_screen"><div class="box_inner">
 		{!MAYBE_NOT_FATAL}
 	</div></div>
 {+END}

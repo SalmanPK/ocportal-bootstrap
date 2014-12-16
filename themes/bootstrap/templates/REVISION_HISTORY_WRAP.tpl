@@ -1,4 +1,4 @@
-<div class="box box___revision_history_wrap"><div class="box_inner">
+<div class="well well-sm well-revision_history_wrap"><div class="box_inner">
 	<h2>{!REVISION_HISTORY}</h2>
 
 	<div class="not_too_tall">

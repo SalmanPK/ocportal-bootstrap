@@ -9,7 +9,7 @@
 
 	{+START,SET,boxes}
 		<div class="gallery_entry_details right">
-			<div class="box box___gallery_entry_screen"><div class="box_inner" role="contentinfo">
+			<div class="well well-sm well-gallery_entry_screen"><div class="box_inner" role="contentinfo">
 				<h2>{!DETAILS}</h2>
 
 				<table summary="{!MAP_TABLE}" class="table table-bordered table-striped table-results">
@@ -63,7 +63,7 @@
 
 		{+START,IF_NON_EMPTY,{MEMBER_DETAILS}}{+START,IF_PASSED,MEMBER_ID}
 			<div class="gallery_member_details right">
-				<div class="box box___gallery_entry_screen"><div class="box_inner">
+				<div class="well well-sm well-gallery_entry_screen"><div class="box_inner">
 					<h2>{GALLERY_TITLE*}</h2>
 
 					{MEMBER_DETAILS}

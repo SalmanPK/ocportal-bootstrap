@@ -1,5 +1,5 @@
-<div class="pointstore_item">
-	<div class="box box___pointstore_banners_2"><div class="box_inner">
+<div class="pointstore-item">
+	<div class="well well-pointstore-banners-2">
 		<h2>{!BANNER_ADS}</h2>
 
 		<p>
@@ -11,5 +11,5 @@
 				<li><a title="{!ENTER}: {!BANNER_ADS}" href="{BANNER_URL*}">{!ENTER}</a></li>
 			</ul>
 		{+END}
-	</div></div>
+	</div>
 </div>

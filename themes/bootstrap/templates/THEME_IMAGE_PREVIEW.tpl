@@ -1,4 +1,4 @@
-<div class="box box___theme_image_preview"><div class="box_inner">
+<div class="well well-sm well-theme_image_preview"><div class="box_inner">
 	<h2>{!CURRENT}</h2>
 
 	<div class="clearfix">

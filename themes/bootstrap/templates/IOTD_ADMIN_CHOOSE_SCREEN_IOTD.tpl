@@ -1,4 +1,4 @@
-<div class="box box___iotd_admin_choose_screen_iotd"><div class="box_inner">
+<div class="well well-sm well-iotd_admin_choose_screen_iotd"><div class="box_inner">
 	{+START,IF_NON_EMPTY,{THUMB_URL}}
 		<div class="iotd_admin_preview_picture">
 			 <a target="_blank" title="{!IOTD}: {!LINK_NEW_WINDOW}" href="{FULL_URL*}"><img alt="{!THUMBNAIL}" src="{THUMB_URL*}" /></a>

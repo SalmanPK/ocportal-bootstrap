@@ -1,8 +1,8 @@
 <div class="clearfix">
-	<div class="ocf_avatar_page_old_avatar">
-		{AVATAR}
-	</div>
-	<div class="ocf_avatar_page_text">
-		<p>{!AVATAR_CHANGE,{WIDTH*},{HEIGHT*},{USERNAME*}}</p>
+	<div class="ocf-avatar-page-old-avatar right">{AVATAR}</div>
+	<div class="ocf-avatar-page-text">
+		<p>
+			{!AVATAR_CHANGE,{WIDTH*},{HEIGHT*},{USERNAME*}}
+		</p>
 	</div>
 </div>

@@ -31,7 +31,7 @@
 {+END}
 
 {+START,IF_NON_EMPTY,{UPLOAD_FORM}}
-	<div class="box box___file_dump_screen"><div class="box_inner">
+	<div class="well well-sm well-file_dump_screen"><div class="box_inner">
 		<h2>{!FILEDUMP_UPLOAD}</h2>
 
 		{UPLOAD_FORM}
@@ -39,7 +39,7 @@
 {+END}
 
 {+START,IF_NON_EMPTY,{CREATE_FOLDER_FORM}}
-	<div class="box box___file_dump_screen">
+	<div class="well well-sm well-file_dump_screen">
 		<h2 class="toggleable_tray_title">
 			<a class="toggleable_tray_button" href="#" onclick="return toggleable_tray(this.parentNode.parentNode);"><img alt="{!EXPAND}: {!FILEDUMP_CREATE_FOLDER}" title="{!EXPAND}" src="{$IMG*,expand}" /></a>
 			<a class="toggleable_tray_button" href="#" onclick="return toggleable_tray(this.parentNode.parentNode);">{!FILEDUMP_CREATE_FOLDER}</a>

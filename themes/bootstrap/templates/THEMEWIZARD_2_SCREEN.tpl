@@ -2,7 +2,7 @@
 
 <div class="clearfix">
 	<div class="theme_wizard_info_box">
-		<div class="box box___themewizard_2_screen"><div class="box_inner">
+		<div class="well well-sm well-themewizard_2_screen"><div class="box_inner">
 			<h2>{!SEED_COLOUR}</h2>
 
 			<div>#<span class="theme_wizard_info_box_label">{SEED*}</span></div>
@@ -18,7 +18,7 @@
 
 {+START,IF,{$NOT,{$VALUE_OPTION,xhtml_strict}}}
 	<div class="theme_wizard_preview_wrap">
-		<div class="box box___themewizard_2_screen"><div class="box_inner">
+		<div class="well well-sm well-themewizard_2_screen"><div class="box_inner">
 			<h2>{!PREVIEW}</h2>
 
 			<iframe{$?,{$BROWSER_MATCHES,ie}, frameBorder="0" scrolling="no"} title="{!PREVIEW}" class="theme_wizard_preview" src="{$PAGE_LINK*,::keep_theme_seed={SEED#}:keep_theme_dark={DARK#}:keep_theme_source={SOURCE_THEME#}:keep_theme={SOURCE_THEME#}:keep_theme_algorithm={ALGORITHM#}:wide=1:keep_theme=default}">{!PREVIEW}</iframe>

@@ -5,7 +5,7 @@
 		{!CONFIRM_TEXT}
 	</p>
 
-	<div class="box box___confirm_screen"><div class="box_inner">
+	<div class="well well-sm well-confirm_screen"><div class="box_inner">
 		{PREVIEW}
 	</div></div>
 {+END}

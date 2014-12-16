@@ -1,5 +1,5 @@
 {+START,IF_ARRAY_NON_EMPTY,FOUND}
-	<section class="box box___broken_urls"><div class="box_inner">
+	<section class="well well-sm well-broken_urls"><div class="box_inner">
 		<h3>{!BROKEN_URLS} {!BROKEN_URLS_FILES}</h3>
 
 		{+START,LOOP,FOUND}
@@ -8,7 +8,7 @@
 	</div></section>
 {+END}
 {+START,IF_ARRAY_NON_EMPTY,FOUND_404}
-	<section class="box box___broken_urls"><div class="box_inner">
+	<section class="well well-sm well-broken_urls"><div class="box_inner">
 		<h3>{!BROKEN_URLS} {!BROKEN_URLS_404}</h3>
 
 		{+START,LOOP,FOUND_404}

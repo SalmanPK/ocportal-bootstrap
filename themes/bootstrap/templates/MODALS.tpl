@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="modal-confirm-title"></h4>
+				<h4 class="modal-title" id="modal-confirm-title">Lorem Ipsum</h4>
 			</div>
 			<div class="modal-body"></div>
 			<div class="modal-footer">
@@ -21,7 +21,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="modal-prompt-title"></h4>
+				<h4 class="modal-title" id="modal-prompt-title">Lorem Ipsum</h4>
 			</div>
 			<div class="modal-body">
 				<label class="modal-question" for="modal-prompt-input"></label>
@@ -40,7 +40,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="modal-alert-title"></h4>
+				<h4 class="modal-title" id="modal-alert-title">Lorem Ipsum</h4>
 			</div>
 			<div class="modal-body"></div>
 			<div class="modal-footer">

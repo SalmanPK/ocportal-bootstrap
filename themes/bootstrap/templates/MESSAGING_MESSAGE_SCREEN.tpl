@@ -3,7 +3,7 @@
 <div class="clearfix">
 	<div class="whos_read">
 		{+START,IF_NON_EMPTY,{WHOS_READ}}
-			<div class="box box___messaging_message_screen"><div class="box_inner">
+			<div class="well well-sm well-messaging_message_screen"><div class="box_inner">
 				<h2>{!THIS_HAS_BEEN_READ_BY}</h2>
 
 				<ul>
@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="message_main">
-		<div class="box box___messaging_message_screen"><div class="box_inner">
+		<div class="well well-sm well-messaging_message_screen"><div class="box_inner">
 			<h2>{MESSAGE_TITLE} <span class="help-text">({!BY_SIMPLE,{BY*}})</span></h2>
 
 			{MESSAGE}

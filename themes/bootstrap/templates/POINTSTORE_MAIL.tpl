@@ -1,5 +1,5 @@
 <div class="pointstore_item">
-	<div class="box box___pointstore_mail"><div class="box_inner">
+	<div class="well well-pointstore_mail"><div class="box_inner">
 		<h2>{!EMAIL_ACCOUNTS} <span class="pointstore_item_tag">{!EMAIL_TYPES}</span></h2>
 
 		<p>

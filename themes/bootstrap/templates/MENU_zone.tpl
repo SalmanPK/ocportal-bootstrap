@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default menu-zone" role="navigation">
+<nav class="navbar navbar-default menu-zone menu-zone-{MENU|*}" role="navigation">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-zone-menu">
 			<span class="sr-only">Toggle navigation</span>
@@ -10,6 +10,6 @@
 	</div>
 
 	<div class="collapse navbar-collapse" id="collapse-zone-menu">
-		<ul class="nav navbar-nav">{CONTENT}</ul>
+		<ul class="nav navbar-nav menu-zone-items">{CONTENT}</ul>
 	</div>
 </nav>

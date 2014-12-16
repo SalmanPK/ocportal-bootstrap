@@ -11,15 +11,10 @@ if (typeof window.CKEDITOR=='undefined')
 	window.CKEDITOR=null;
 }
 
-function wysiwyg_cookie_says_on()
-{
-	var cookie=read_cookie('use_wysiwyg');
-	return ((cookie=='') || (cookie=='1')) && (browser_matches('wysiwyg') && ('{$MOBILE}'!='1'));
-}
-
 function wysiwyg_on()
 {
-	return wysiwyg_cookie_says_on();
+	var cookie = read_cookie('use_wysiwyg');
+	return ((cookie=='') || (cookie=='1')) && (browser_matches('wysiwyg') && ('{$MOBILE}'!='1'));
 }
 
 function toggle_wysiwyg(name)
@@ -54,26 +49,22 @@ function _toggle_wysiwyg(name,saving_cookies)
 {
 	var is_wysiwyg_on=wysiwyg_on();
 
-	if (saving_cookies)
-	{
+	if (saving_cookies) {
 		set_cookie('use_wysiwyg',is_wysiwyg_on?'0':'1',3000);
 	}
 
-	var forms=document.getElementsByTagName('form');
+	var forms=$('form');
 	var so=document.getElementById('post_special_options');
 	var so2=document.getElementById('post_special_options2');
 
-	if (is_wysiwyg_on)
-	{
+	if (is_wysiwyg_on) {
 		// Find if the WYSIWYG has anything in it - if not, discard
 		var all_empty=true,myregexp=new RegExp(/((\s)|(<p\d*\/>)|(<\/p>)|(<p>)|(&nbsp;)|(<br[^>]*>))*/);
-		for (var fid=0;fid<forms.length;fid++)
-		{
-			for (var counter=0;counter<forms[fid].elements.length;counter++)
-			{
+
+		for (var fid=0;fid<forms.length;fid++) {
+			for (var counter=0;counter<forms[fid].elements.length;counter++) {
 				var id=forms[fid].elements[counter].id;
-				if (typeof window.wysiwyg_editors[id]!='undefined')
-				{
+				if (typeof window.wysiwyg_editors[id]!='undefined') {
 					if (window.wysiwyg_editors[id].getData().replace(myregexp,'')!='') all_empty=false;
 				}
 			}
@@ -93,8 +84,7 @@ function _toggle_wysiwyg(name,saving_cookies)
 				{cancel: '{!INPUTSYSTEM_CANCEL;^}',convert: '{!DISCARD_WYSIWYG_CHANGES_LINE_CONVERT;^}',discard: '{!DISCARD_WYSIWYG_CHANGES_LINE;^}'},
 				'{!DISABLE_WYSIWYG;^}',
 				'{!DISCARD_WYSIWYG_CHANGES;^}',
-				function(prompt)
-				{
+				function(prompt) {
 					if ((!prompt) || (prompt.toLowerCase()=='{!INPUTSYSTEM_CANCEL;^}'.toLowerCase()))
 					{
 						if (saving_cookies)
@@ -107,8 +97,7 @@ function _toggle_wysiwyg(name,saving_cookies)
 				}
 			);
 		}
-	} else
-	{
+	} else {
 		enable_wysiwyg(forms,so,so2);
 	}
 
@@ -276,7 +265,7 @@ function wysiwyg_editor_init_for(element)
 {
 	var page_stylesheets=[];
 	if (!document) return;
-	var linked_sheets=document.getElementsByTagName('link');
+	var linked_sheets=$('link');
 	for (var counter=0;counter<linked_sheets.length;counter++)
 	{
 		if (linked_sheets[counter].getAttribute('rel')=='stylesheet')
@@ -321,7 +310,7 @@ function wysiwyg_editor_init_for(element)
 	var editor=window.CKEDITOR.replace(element.id,editor_settings);
 	if (!editor) return; // Not supported on this platform
 
-	linked_sheets=document.getElementsByTagName('style');
+	linked_sheets=$('style');
 	var css='';
 	css+='body { width: 100%; min-height: 140px; }'; // IE9 selectability fix
 	css+="#screen_title { display: block !important }";
@@ -883,20 +872,18 @@ function insert_textbox_wrapping(element,before_wrap_tag,after_wrap_tag)
 }
 
 // From http://www.faqts.com/knowledge_base/view.phtml/aid/13562
-function set_selection_range(input,selectionStart,selectionEnd)
-{
-	if (typeof input.set_selection_range!='undefined') /* Mozilla style */
-	{
+function set_selection_range(input,selectionStart,selectionEnd) {
+	if (typeof input.set_selection_range!='undefined') { /* Mozilla style */
 		input.focus();
 		input.set_selection_range(selectionStart,selectionEnd);
-	}
-	else if (typeof input.createTextRange!='undefined') /* IE style */
-	{
+	} else if (typeof input.createTextRange!='undefined') { /* IE style */
 		var range=input.createTextRange();
 		range.collapse(true);
 		range.moveEnd('character',selectionEnd);
 		range.moveStart('character',selectionStart);
 		range.select();
-	} else input.focus();
+	} else {
+		input.focus();
+	}
 }
 

@@ -1,4 +1,4 @@
-<div class="box box___pointstore_pop3_quota"><div class="box_inner">
+<div class="well well-pointstore_pop3_quota"><div class="box_inner">
 	<h2>{!PURCHASE_QUOTA}</h2>
 
 	<p>

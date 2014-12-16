@@ -2,7 +2,7 @@
 
 {$SET,randomised_id,{$?,{$IS_EMPTY,{NAME*}},{$RAND},{NAME*}}}
 
-<div class="form-group">
+<div id="form-group-{$GET*,randomised_id}" class="form-group">
 	<label class="control-label {+START,IF,{REQUIRED}} required{+END}"  for="{NAME*}">
 
 		{$SET,show_label,{$AND,{$IS_NON_EMPTY,{NAME}},{$NOT,{SKIP_LABEL}}}}
@@ -10,14 +10,14 @@
 		{+START,IF,{$GET,show_label}}
 			{PRETTY_NAME*}
 		{+END}
+
 		{+START,IF,{$NOT,{$GET,show_label}}}
 			{PRETTY_NAME*}
 		{+END}
 
-
 		{+START,IF_NON_EMPTY,{COMCODE}}
 			<div class="comcode_supported">
-				<input type="hidden" name="comcode__{$GET,randomised_id}" value="1" />
+				<input type="hidden" name="comcode__{$GET,randomised_id}" value="1">
 				{COMCODE}
 			</div>
 		{+END}
@@ -40,8 +40,7 @@
 			<input type="hidden" id="required_posted__{$GET,randomised_id}" name="require__{NAME*}" value="{$?,{REQUIRED*},1,0}" />
 		{+END}
 
-		<script>			set_up_change_monitor('form_table_field_input__{$GET,randomised_id}');
-		</script>
+		<script>set_up_change_monitor('form_table_field_input__{$GET,randomised_id}');</script>
 	</div>
 </div>
 

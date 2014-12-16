@@ -3,7 +3,7 @@
 {$SET,login_screen,1}
 
 <div class="login_page">
-	<div class="box box___login_screen"><div class="box_inner">
+	<div class="well well-sm well-login_screen"><div class="box_inner">
 		{!LOGIN_TEXT,<a href="{JOIN_URL*}"><strong>{!JOIN_HERE}</strong></a>}
 	</div></div>
 

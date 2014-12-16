@@ -1,5 +1,5 @@
 <div id="template_editing_{I*}" style="display: {DISPLAY*}">
-	<div class="box box___template_edit_screen_editor"><div class="box_inner">
+	<div class="well well-sm well-template_edit_screen_editor"><div class="box_inner">
 		<div> {$,Extra div needed so the h2 is not a box title}
 			<h2>{!EDITING,{FILE_SAVE_TARGET*}}</h2>
 

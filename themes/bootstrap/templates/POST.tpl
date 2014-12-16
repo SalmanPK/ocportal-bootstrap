@@ -1,7 +1,7 @@
 {+START,IF,{IS_SPACER_POST}}
 	{+START,IF,{$NOT,{$IN_STR,{POST},<div}}}
-		<div class="box-post">
-			{POST}
+		<div class="post-wrap">
+			<div class="post">{POST}</div>
 		</div>
 	{+END}
 
@@ -11,18 +11,25 @@
 {+END}
 
 {+START,IF,{$NOT,{IS_SPACER_POST}}}
-	<div class="box-post {+START,IF,{HIGHLIGHT}}highlighted-post{+END}">
-		<div id="post_wrap_{ID*}" class="post time_{TIME_RAW*}" itemprop="reviews" itemscope="itemscope" itemtype="http://schema.org/Review">
+	<div class="post-wrap {+START,IF,{HIGHLIGHT}}highlighted-post{+END}">
+		<div class="post time-{TIME_RAW*}" itemprop="reviews" itemscope="itemscope" itemtype="http://schema.org/Review"  id="post_wrap_{ID*}">
 			{+START,IF_NON_EMPTY,{ID}}<a id="post_{ID*}"></a>{+END}
 
 			<div class="post-body">
-				{+START,IF_NON_EMPTY,{TITLE}}<h3 class="post-title" itemprop="name">{TITLE*}</h3>{+END}
-
-				{+START,IF_NON_EMPTY,{$AVATAR,{POSTER_ID}}}
-					<p class="post-avatar">
-						<img src="{$AVATAR*,{POSTER_ID}}" alt="{!AVATAR}">
-					</p>
+				{+START,IF_NON_EMPTY,{TITLE}}
+					<h3 class="post-title" itemprop="name">{TITLE*}</h3>
 				{+END}
+
+
+				<p class="post-avatar">
+					{+START,IF_NON_EMPTY,{$AVATAR,{POSTER_ID}}}
+						<img src="{$AVATAR*,{POSTER_ID}}" alt="{!AVATAR}">
+					{+END}
+
+					{+START,IF_EMPTY,{$AVATAR,{POSTER_ID}}}
+						<img src="{$IMG*,ocf_default_avatars/default_set/ocp_fanatic}" alt="{!AVATAR}">
+					{+END}
+				</p>
 
 				<div class="post-area">
 					<div class="post-details">

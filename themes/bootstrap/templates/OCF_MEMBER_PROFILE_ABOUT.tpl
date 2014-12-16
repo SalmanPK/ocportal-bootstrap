@@ -8,14 +8,7 @@
 		{+END}
 
 		<div class="table-wrap">
-			<table class="table ocf-profile-fields" summary="{!MAP_TABLE}">
-				{+START,IF,{$NOT,{$MOBILE}}}
-					<colgroup>
-						<col class="ocf_profile_about_field_name_column" />
-						<col class="ocf_profile_about_field_value_column" />
-					</colgroup>
-				{+END}
-
+			<table class="table table-ocf-profile-fields">
 				<tbody>
 					{+START,IF,{VIEW_PROFILES}}
 						{+START,LOOP,CUSTOM_FIELDS}
@@ -23,11 +16,11 @@
 
 							{+START,IF,{$NOT,{$GET,is_messenger_field}}}
 								<tr>
-									<th class="de_th">
+									<th class="de_th col-name">
 										{NAME*}:
 									</th>
 
-									<td>
+									<td class="col-value">
 										<span{+START,IF,{$EQ,{NAME},{!SPECIAL_CPF__ocp_fullname}}} class="fn given-name"{+END}>
 											{+START,IF_EMPTY,{ENCRYPTED_VALUE}}
 												{VALUE}
@@ -45,11 +38,11 @@
 
 					{+START,IF_NON_EMPTY,{$TRIM,{SIGNATURE}}}
 						<tr>
-							<th class="de_th">
+							<th class="de_th col-name">
 								{!SIGNATURE}:
 							</th>
 
-							<td>
+							<td class="col-value">
 								{SIGNATURE}
 							</td>
 						</tr>
@@ -64,24 +57,17 @@
 			<meta itemprop="name" content="{USERNAME*}" />
 
 			<div class="table-wrap">
-				<table class="table ocf-profile-details" summary="{!MAP_TABLE}">
-					{+START,IF,{$NOT,{$MOBILE}}}
-						<colgroup>
-							<col class="ocf_profile_about_field_name_column" />
-							<col class="ocf_profile_about_field_value_column" />
-						</colgroup>
-					{+END}
-
+				<table class="table table-ocf-profile-details">
 					<tbody>
 						<tr>
-							<th class="de_th">{!ONLINE_NOW}:</th>
-							<td>{ONLINE_NOW*} <span class="help-text">({$DATE_AND_TIME*,1,0,0,{LAST_VISIT_TIME_RAW}})</span></td>
+							<th class="de_th col-name">{!ONLINE_NOW}:</th>
+							<td class="col-value">{ONLINE_NOW*} <span class="help-text">({$DATE_AND_TIME*,1,0,0,{LAST_VISIT_TIME_RAW}})</span></td>
 						</tr>
 
 						{+START,IF_NON_EMPTY,{JOIN_DATE}}
 							<tr>
-								<th class="de_th">{!JOIN_DATE}:</th>
-								<td>
+								<th class="de_th col-name">{!JOIN_DATE}:</th>
+								<td class="col-value">
 									<time datetime="{$FROM_TIMESTAMP*,Y-m-d\TH:i:s\Z,{JOIN_DATE_RAW}}" pubdate="pubdate" itemprop="datePublished">{JOIN_DATE*}</time>
 								</td>
 							</tr>
@@ -89,41 +75,41 @@
 
 						{+START,IF_PASSED,ON_PROBATION}
 							<tr>
-								<th class="de_th">{!ON_PROBATION_UNTIL}:</th>
-								<td>{$DATE_AND_TIME*,1,0,0,{ON_PROBATION}}</td>
+								<th class="de_th col-name">{!ON_PROBATION_UNTIL}:</th>
+								<td class="col-value">{$DATE_AND_TIME*,1,0,0,{ON_PROBATION}}</td>
 							</tr>
 						{+END}
 
 						<tr>
-							<th class="de_th">{!TIME_FOR_THEM}:</th>
-							<td>{TIME_FOR_THEM*}</td>
+							<th class="de_th col-name">{!TIME_FOR_THEM}:</th>
+							<td class="col-value">{TIME_FOR_THEM*}</td>
 						</tr>
 
 						{+START,IF_NON_EMPTY,{BANNED}}
 							<tr>
-								<th class="de_th">{!_BANNED}:</th>
-								<td>{BANNED*}</td>
+								<th class="de_th col-name">{!_BANNED}:</th>
+								<td class="col-value">{BANNED*}</td>
 							</tr>
 						{+END}
 
 						{+START,IF_NON_EMPTY,{DOB}}
 							<tr>
-								<th class="de_th">{!DATE_OF_BIRTH}:</th>
-								<td><span class="bday">{DOB*}</span></td>
+								<th class="de_th col-name">{!DATE_OF_BIRTH}:</th>
+								<td class="col-value"><span class="bday">{DOB*}</span></td>
 							</tr>
 						{+END}
 
 						{+START,IF,{$HAS_PRIVILEGE,member_maintenance}}{+START,IF_NON_EMPTY,{EMAIL_ADDRESS}}
 							<tr>
-								<th class="de_th">{!EMAIL_ADDRESS}:</th>
-								<td><a class="email" href="mailto:{EMAIL_ADDRESS*}">{EMAIL_ADDRESS*}</a></td>
+								<th class="de_th col-name">{!EMAIL_ADDRESS}:</th>
+								<td class="col-value"><a class="email" href="mailto:{EMAIL_ADDRESS*}">{EMAIL_ADDRESS*}</a></td>
 							</tr>
 						{+END}{+END}
 
 						{+START,LOOP,EXTRA_INFO_DETAILS}
 							<tr>
-								<th class="de_th">{_loop_key*}:</th>
-								<td><span>{_loop_var*}</span></td>
+								<th class="de_th col-name">{_loop_key*}:</th>
+								<td class="col-value"><span>{_loop_var*}</span></td>
 							</tr>
 						{+END}
 					</tbody>
@@ -148,52 +134,45 @@
 			<h2>{!ACTIVITY}</h2>
 
 			<div class="table-wrap">
-				<table class="table ocf-profile-statistics" summary="{!MAP_TABLE}">
-					{+START,IF,{$NOT,{$MOBILE}}}
-						<colgroup>
-							<col class="ocf_profile_about_field_name_column" />
-							<col class="ocf_profile_about_field_value_column" />
-						</colgroup>
-					{+END}
-
+				<table class="table table-ocf-profile-statistics">
 					<tbody>
 						{+START,IF,{$ADDON_INSTALLED,ocf_forum}}
 							<tr>
-								<th class="de_th">{!COUNT_POSTS}:</th>
-								<td>{COUNT_POSTS*}</td>
+								<th class="de_th col-name">{!COUNT_POSTS}:</th>
+								<td class="col-value">{COUNT_POSTS*}</td>
 							</tr>
 						{+END}
 
 						{+START,IF_NON_EMPTY,{MOST_ACTIVE_FORUM}}
 							<tr>
-								<th class="de_th">{!MOST_ACTIVE_FORUM}:</th>
-								<td>{MOST_ACTIVE_FORUM*}</td>
+								<th class="de_th col-name">{!MOST_ACTIVE_FORUM}:</th>
+								<td class="col-value">{MOST_ACTIVE_FORUM*}</td>
 							</tr>
 						{+END}
 
 						<tr>
-							<th class="de_th">{!LAST_SUBMIT_TIME}:</th>
-							<td>{!DAYS_AGO,{SUBMIT_DAYS_AGO}}</td>
+							<th class="de_th col-name">{!LAST_SUBMIT_TIME}:</th>
+							<td class="col-value">{!DAYS_AGO,{SUBMIT_DAYS_AGO}}</td>
 						</tr>
 
 						{+START,IF_NON_EMPTY,{IP_ADDRESS}}
 							<tr>
-								<th class="de_th">{!IP_ADDRESS}:</th>
-								<td><a href="{$PAGE_LINK*,_SEARCH:admin_lookup:param={IP_ADDRESS&}}">{$TRUNCATE_SPREAD,{IP_ADDRESS*},20,1,1}</a></td>
+								<th class="de_th col-name">{!IP_ADDRESS}:</th>
+								<td class="col-value"><a href="{$PAGE_LINK*,_SEARCH:admin_lookup:param={IP_ADDRESS&}}">{$TRUNCATE_SPREAD,{IP_ADDRESS*},20,1,1}</a></td>
 							</tr>
 						{+END}
 
 						{+START,IF_PASSED,USER_AGENT}
 							<tr>
-								<th class="de_th">{!USER_AGENT}:</th>
-								<td>{USER_AGENT*}</td>
+								<th class="de_th col-name">{!USER_AGENT}:</th>
+								<td class="col-value">{USER_AGENT*}</td>
 							</tr>
 						{+END}
 
 						{+START,IF_PASSED,OPERATING_SYSTEM}
 							<tr>
-								<th class="de_th">{!USER_OS}:</th>
-								<td>{OPERATING_SYSTEM*}</td>
+								<th class="de_th col-name">{!USER_OS}:</th>
+								<td class="col-value">{OPERATING_SYSTEM*}</td>
 							</tr>
 						{+END}
 					</tbody>
@@ -203,7 +182,8 @@
 		{+END}
 	</div>
 
-	<div class="ocf-profile-column well">
+	<div class="ocf-profile-column">
+		<div class="well">
 		{+START,IF_NON_EMPTY,{AVATAR_URL}}
 		<div class="ocf_member_profile_avatar">
 			<img src="{AVATAR_URL*}" alt="{!AVATAR}" />
@@ -311,5 +291,6 @@
 			</div>
 		</div>
 		{+END}
+		</div>
 	</div>
 </div>

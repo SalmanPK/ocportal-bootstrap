@@ -4,7 +4,7 @@
 
 <p>{!USE_CHAT_RULES,{$PAGE_LINK*,:rules},{$PAGE_LINK*,:privacy}}</p>
 
-<div class="box box___chat_lobby_screen_rooms"><div class="box_inner">
+<div class="well well-chat-lobby-screen-rooms">
 	<h2>{!ROOMS_LOBBY_TITLE}</h2>
 
 	<div class="clearfix">
@@ -47,11 +47,11 @@
 			{+END}
 		</div>
 	</div>
-</div></div>
+</div>
 
 {+START,IF,{$NOT,{$IS_GUEST}}}
 	<div class="chat_im_convos_wrap">
-		<div class="box box___chat_lobby_screen_im"><div class="box_inner">
+		<div class="well well-chat-lobby-screen-im">
 			<h2>{!INSTANT_MESSAGING}</h2>
 
 			<div class="clearfix chat_im_convos_inner">
@@ -173,6 +173,6 @@
 					</div>
 				</div>
 			</div>
-		</div></div>
+		</div>
 	</div>
 {+END}

@@ -2,7 +2,7 @@
 
 {+START,IF_PASSED,BLOGGER}
 	{+START,IF,{$OCF}}
-		<div class="box box___news_archive_screen"><div class="box_inner">
+		<div class="well well-sm well-news_archive_screen"><div class="box_inner">
 			<h2>{!WELCOME_BLOG_OF,{$USERNAME*,{BLOGGER}},{$MEMBER_PROFILE_URL*,{BLOGGER}}}</h2>
 
 			{$OCF_MEMBER_HTML,{BLOGGER}}
@@ -12,20 +12,18 @@
 	{+END}
 {+END}
 
-<div class="clearfix" itemprop="significantLinks">
+<div class="panels-news-brief" itemprop="significantLinks">
 	{+START,SET,commented_out}
 		<div class="chicklets">
 			{+START,INCLUDE,NEWS_CHICKLETS}RSS_URL={$FIND_SCRIPT*,backend}{+END}
 		</div>
 	{+END}
 
-	{$,<div class="chicklets_spacer">}
-		{CONTENT}
+	{CONTENT}
 
-		{+START,IF_EMPTY,{CONTENT}}
-			<p class="nothing_here">{!NO_ENTRIES}</p>
-		{+END}
-	{$,</div>}
+	{+START,IF_EMPTY,{CONTENT}}
+		<p class="nothing_here">{!NO_ENTRIES}</p>
+	{+END}
 </div>
 
 {BROWSE}

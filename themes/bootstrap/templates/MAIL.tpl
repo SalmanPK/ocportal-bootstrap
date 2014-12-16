@@ -11,7 +11,7 @@
 	<div style="font-size: 12px" class="email_body">
 		<p><a href="{$BASE_URL*}"><img src="{$IMG*,logo/trimmed_logo}" title="{$SITE_NAME*}" alt="{$SITE_NAME*}" /></a></p>
 
-		<div class="box box___mail"><div class="box_inner">
+		<div class="well well-sm well-mail"><div class="box_inner">
 			{CONTENT}
 		</div></div>
 	</div>

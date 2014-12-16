@@ -81,7 +81,7 @@
 		<input type="hidden" name="confirm" value="1" />
 	</form>
 
-	<div class="box box___menu_editor_screen">
+	<div class="well well-sm well-menu_editor_screen">
 		<h2 class="toggleable_tray_title">
 			<a class="toggleable_tray_button" href="#" onclick="return toggleable_tray(this.parentNode.parentNode);"><img alt="{!EXPAND}: {!DELETE_MENU}" title="{!EXPAND}" src="{$IMG*,expand}" /></a>
 			<a class="toggleable_tray_button" href="#" onclick="return toggleable_tray(this.parentNode.parentNode);">{!DELETE_MENU}</a>
@@ -110,4 +110,4 @@
 	document.getElementById('url').ondblclick=cf;
 	document.getElementById('caption_long').ondblclick=cf;
 	document.getElementById('match_tags').ondblclick=cf;
-//]]></script>
+</script>

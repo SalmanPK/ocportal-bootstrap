@@ -1,4 +1,4 @@
-<div class="box box___iotd_archive_screen_iotd"><div class="box_inner">
+<div class="well well-sm well-iotd_archive_screen_iotd"><div class="box_inner">
 	<h2>{DATE*}</h2>
 
 	<div class="media_box">

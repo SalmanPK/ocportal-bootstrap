@@ -1,22 +1,22 @@
 {+START,IF_NON_EMPTY,{COMMENT_URL}}
-<form role="form" class="comments_form form-horizontal form-default" id="comments_form" onsubmit="return ({+START,IF_PASSED,MORE_URL}(this.getAttribute('action')=='{MORE_URL;*}') || {+END}(check_field_for_blankness(this.elements['post'],event)){+START,IF,{$AND,{GET_EMAIL},{$NOT,{EMAIL_OPTIONAL}}}} &amp;&amp; (check_field_for_blankness(this.elements['email'],event)){+END});" action="{COMMENT_URL*}{+START,IF_NON_EMPTY,{$GET,current_anchor}}#{$GET,current_anchor}{+END}{+START,IF_EMPTY,{$GET,current_anchor}}{+START,IF_PASSED_AND_TRUE,COMMENTS}#last_comment{+END}{+END}" method="post" enctype="multipart/form-data">
+<form role="form" class="form-horizontal form-default form-comments-posting" id="comments_form" onsubmit="return ({+START,IF_PASSED,MORE_URL}(this.getAttribute('action')=='{MORE_URL;*}') || {+END}(check_field_for_blankness(this.elements['post'],event)){+START,IF,{$AND,{GET_EMAIL},{$NOT,{EMAIL_OPTIONAL}}}} &amp;&amp; (check_field_for_blankness(this.elements['email'],event)){+END});" action="{COMMENT_URL*}{+START,IF_NON_EMPTY,{$GET,current_anchor}}#{$GET,current_anchor}{+END}{+START,IF_EMPTY,{$GET,current_anchor}}{+START,IF_PASSED_AND_TRUE,COMMENTS}#last_comment{+END}{+END}" method="post" enctype="multipart/form-data">
 	{$INSERT_SPAMMER_BLACKHOLE}
-	<input type="hidden" name="_comment_form_post" value="1" />
+	<input type="hidden" name="_comment_form_post" value="1">
 {+END}
 
-	<input type="hidden" name="_validated" value="1" />
-	<input type="hidden" name="comcode__post" value="1" />
-	<input type="hidden" name="stub" value="" />
+	<input type="hidden" name="_validated" value="1">
+	<input type="hidden" name="comcode__post" value="1">
+	<input type="hidden" name="stub" value="">
 
-	<div class="panel panel-default panel-collapsible panel-comments_posting_form">
+	<div class="panel panel-default panel-collapsible panel-comments-posting">
 		{+START,IF_NON_EMPTY,{TITLE}}
-		<a class="panel-heading" href="javascript:" data-toggle="collapse" data-target="#comments_posting_form_outer">
+		<a class="panel-heading" href="javascript:" data-toggle="collapse" data-target="#comments-posting-form-outer">
 			<h3 class="panel-title">{TITLE*}</h3>
 		</a>
-
 		{+END}
-		<div class="panel-collapse collapse in comments_posting_form_outer" id="comments_posting_form_outer">
-			<div class="panel-body comments_posting_form_inner">
+
+		<div class="panel-collapse collapse in" id="comments-posting-form-outer">
+			<div class="panel-body">
 				{+START,IF,{$AND,{$IS_GUEST},{$OCF}}}
 					<div class="form-group">
 						<label for="poster_name_if_guest" class="control-label">{!ocf:GUEST_NAME}:</label>
@@ -55,7 +55,6 @@
 					{+START,LOOP,REVIEW_RATING_CRITERIA}
 
 						<label for="review_rating__{TYPE*|}__{$FIX_ID,{REVIEW_TITLE}}__{ID*|}">{+START,IF_EMPTY,{REVIEW_TITLE}}{!RATING}:{+END}{+START,IF_NON_EMPTY,{REVIEW_TITLE}}{REVIEW_TITLE*}:{+END}</label>
-
 
 						{+START,IF,{$JS_ON}}
 							<img id="review_bar_1__{TYPE*|}__{$FIX_ID,{REVIEW_TITLE}}__{ID*|}" alt="" src="{$IMG*,rating}" /><img id="review_bar_2__{TYPE*|}__{$FIX_ID,{REVIEW_TITLE}}__{ID*|}" alt="" src="{$IMG*,rating}" /><img id="review_bar_3__{TYPE*|}__{$FIX_ID,{REVIEW_TITLE}}__{ID*|}" alt="" src="{$IMG*,rating}" /><img id="review_bar_4__{TYPE*|}__{$FIX_ID,{REVIEW_TITLE}}__{ID*|}" alt="" src="{$IMG*,rating}" /><img id="review_bar_5__{TYPE*|}__{$FIX_ID,{REVIEW_TITLE}}__{ID*|}" alt="" src="{$IMG*,rating}" />
@@ -121,7 +120,7 @@
 						{+END}
 					</div>
 					<div class="control-wrap constrain_field">
-						<textarea name="post" id="post" class="form-control" {+START,IF,{$NOT,{$MOBILE}}} onkeyup="manage_scroll_height(this);"{+END} tabindex="4" accesskey="x" onfocus="if ((this.value.replace(/\s/g,'')=='{POST_WARNING;^*}'.replace(/\s/g,'') &amp;&amp; '{POST_WARNING;^*}'!='') || (typeof this.strip_on_focus!='undefined' &amp;&amp; this.value==this.strip_on_focus)) this.value=''; this.style.color='black';" cols="42" rows="11">{POST_WARNING*}</textarea>
+						<textarea name="post" id="post" class="form-control" {+START,IF,{$NOT,{$MOBILE}}} onkeyup="manage_scroll_height(this);"{+END} tabindex="4" accesskey="x" cols="42" rows="11" placeholder="{POST_WARNING*}"></textarea>
 					</div>
 					<div id="error_post" style="display: none" class="alert alert-danger alert-input-error"></div>
 				</div>
@@ -162,7 +161,7 @@
 								</button>
 							{+END}
 						{+END}
-						<button onclick="handle_comments_posting_form_submit(this,event);" tabindex="7" accesskey="u" id="submit_button" class="btn btn-success {$?,{$IS_EMPTY,{COMMENT_URL}},btn-page,btn-pageitem}" {+START,IF,{$JS_ON}}type="button"{+END}{+START,IF,{$NOT,{$JS_ON}}}type="submit"{+END}>
+						<button onclick="handle_comments_posting_form_submit(this,event);" tabindex="7" accesskey="u" id="submit_button" class="btn btn-success {$?,{$IS_EMPTY,{COMMENT_URL}},btn-page,btn-pageitem}" type="{$?,{$JS_ON},button,submit}">
 							<i class="fa fa-plus"></i> {+START,IF_PASSED,SUBMIT_NAME}{SUBMIT_NAME*}{+END}{+START,IF_NON_PASSED,SUBMIT_NAME}{+START,IF_NON_EMPTY,{TITLE}}{TITLE*}{+END}{+START,IF_EMPTY,{TITLE}}{!SEND}{+END}{+END}
 						</button>
 					</div>
@@ -195,9 +194,6 @@
 
 {+START,IF_PASSED,USE_CAPTCHA}
 	{+START,IF,{USE_CAPTCHA}}
-		<script>
-			var form=document.getElementById('comments_form');
-			add_captcha_validation(form);
-		</script>
+		<script>add_captcha_validation(document.getElementById('comments_form'));</script>
 	{+END}
 {+END}

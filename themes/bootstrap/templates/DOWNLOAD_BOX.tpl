@@ -1,4 +1,4 @@
-<div class="box box___download_box"><div class="box_inner">
+<div class="well well-sm well-download_box"><div class="box_inner">
 	{+START,IF_NON_EMPTY,{ID}}
 		<h3><a href="{URL*}">{+START,FRACTIONAL_EDITABLE,{NAME},name,_SEARCH:cms_downloads:type=__ed:id={ID}}{NAME*}{+END}</a></h3>
 	{+END}

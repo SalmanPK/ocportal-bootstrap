@@ -4,7 +4,8 @@
 	{FIELDS}
 </fieldset>
 
-<script>	add_event_listener_abstract(window,'load',function () {
+<script>
+	add_event_listener_abstract(window,'load',function () {
 		standard_alternate_fields_within('{SET_NAME;}',{$?,{REQUIRED},true,false});
-	} );
+	});
 </script>

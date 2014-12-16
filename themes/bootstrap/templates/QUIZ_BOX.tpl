@@ -1,4 +1,4 @@
-<section class="box box___quiz_box"><div class="box_inner">
+<section class="well well-sm well-quiz_box"><div class="box_inner">
 	<h3>{NAME*}</h3>
 
 	<div class="meta-details" role="contentinfo">

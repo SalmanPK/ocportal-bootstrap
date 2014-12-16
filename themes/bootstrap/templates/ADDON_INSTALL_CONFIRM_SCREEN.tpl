@@ -3,7 +3,7 @@
 {WARNINGS}
 
 <form title="{!PRIMARY_PAGE_FORM}" action="{URL*}" method="post">
-	<div class="box box___addon_install_confirm_screen"><div class="box_inner">
+	<div class="well well-sm well-addon_install_confirm_screen"><div class="box_inner">
 		<h2>{!ADDON_FILES}</h2>
 
 		<div class="not_too_tall">

@@ -97,9 +97,9 @@
 {+END}
 
 {+START,IF_NON_EMPTY,{GIVE}}
-	<div class="box box___points_profile"><div class="box_inner">
+	<div class="well well-sm well-points_profile clearfix">
 		{GIVE}
-	</div></div>
+	</div>
 {+END}
 
 {+START,IF_NON_EMPTY,{FROM}}

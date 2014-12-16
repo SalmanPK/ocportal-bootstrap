@@ -1,5 +1,5 @@
 <div class="pointstore_item">
-	<div class="box box___pointstore_highlight_name"><div class="box_inner">
+	<div class="well well-pointstore_highlight_name"><div class="box_inner">
 		<h2>{!NAME_HIGHLIGHTING}</h2>
 
 		<p>

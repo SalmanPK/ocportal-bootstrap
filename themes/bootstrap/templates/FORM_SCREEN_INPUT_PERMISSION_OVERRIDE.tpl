@@ -32,6 +32,6 @@
 			else if (!copy_permission_presets('access_{GROUP_ID*;}','1',true)) list.selectedIndex=list.options.length-3;
 			else if (!copy_permission_presets('access_{GROUP_ID*;}','2',true)) list.selectedIndex=list.options.length-2;
 			else if (!copy_permission_presets('access_{GROUP_ID*;}','3',true)) list.selectedIndex=list.options.length-1;
-		//]]></script>
+		</script>
 	{+END}
 </td>

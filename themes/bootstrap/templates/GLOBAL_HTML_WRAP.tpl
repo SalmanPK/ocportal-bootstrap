@@ -7,9 +7,8 @@ Powered by {$BRAND_NAME*} version {$VERSION_NUMBER*}, (c) ocProducts Ltd
 <head>
 	{+START,INCLUDE,HTML_HEAD}{+END}
 </head>
-
 {$,You can use main_website_inner to help you create fixed width designs; never put fixed-width stuff directly on ".website_body" or "body" because it will affects things like the preview or banner frames or popups/overlays}
-<body class="website-body zone-running-{$?,{$ZONE},{$ZONE},default} page-running-{$PAGE*} {+START,IF_NON_EMPTY,{$TRIM,{$LOAD_PANEL,left}}}has-left-panel{+END} {+START,IF_NON_EMPTY,{$TRIM,{$LOAD_PANEL,right}}}has-right-panel{+END}"
+<body class="website-body zone-running-{$?,{$IS_EMPTY,{$ZONE}},default,{$ZONE*}} page-running-{$PAGE*} type-running-{$?,{$IS_EMPTY,{$_GET,type}},misc,{$_GET,type}} {+START,IF_NON_EMPTY,{$TRIM,{$LOAD_PANEL,left}}}has-left-panel{+END} {+START,IF_NON_EMPTY,{$TRIM,{$LOAD_PANEL,right}}}has-right-panel{+END}"
 	  id="main-website" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <div id="main-website-inner" class="main-website-inner">
 {$,This is the main site header}
@@ -111,7 +110,7 @@ Powered by {$BRAND_NAME*} version {$VERSION_NUMBER*}, (c) ocProducts Ltd
 		{$SET,HELPER_PANEL_TUTORIAL,{$?,{$HAS_PRIVILEGE,see_software_docs},{$HELPER_PANEL_TUTORIAL}}}
 		{$SET,helper_panel,{$OR,{$IS_NON_EMPTY,{$GET,HELPER_PANEL_TUTORIAL}},{$IS_NON_EMPTY,{$HELPER_PANEL_PIC}},{$IS_NON_EMPTY,{$HELPER_PANEL_HTML}},{$IS_NON_EMPTY,{$HELPER_PANEL_TEXT}}}}
 		{+START,IF,{$OR,{$GET,helper_panel},{$IS_NON_EMPTY,{$TRIM,{$LOAD_PANEL,right}}}}}
-		<div id="panel-right" class="global-side-panel global-right-panel {+START,IF_EMPTY,{$TRIM,{$LOAD_PANEL,right}}} helper_panel{+START,IF,{$HIDE_HELP_PANEL}} helper_panel_hidden{+END}{+END}" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+		<div id="panel-right" class="global-side-panel global-right-panel {+START,IF_EMPTY,{$TRIM,{$LOAD_PANEL,right}}} helper-panel{+START,IF,{$HIDE_HELP_PANEL}} helper-panel-hidden{+END}{+END}" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 			{+START,IF_NON_EMPTY,{$TRIM,{$LOAD_PANEL,right}}}
 			{$LOAD_PANEL,right}
 			{+END}

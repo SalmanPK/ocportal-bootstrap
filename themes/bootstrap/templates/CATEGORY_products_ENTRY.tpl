@@ -1,4 +1,4 @@
-<li class="box box___category_products_entry"><div class="box_inner">
+<li class="well well-sm well-category_products_entry"><div class="box_inner">
 	<h2>{NAME_PLAIN}</h2>
 
 	<div class="clearfix">
